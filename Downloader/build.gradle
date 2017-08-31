@@ -1,0 +1,21 @@
+apply plugin: 'com.android.library'
+
+version = "1.4.3"
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion '25.0.0'
+
+    defaultConfig {
+        minSdkVersion 1
+        targetSdkVersion 23
+        versionCode 8
+        versionName version
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}

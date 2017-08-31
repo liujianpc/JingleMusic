@@ -1,0 +1,46 @@
+[
+    {
+        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\pause.png",
+        "source": "E:\\EclipseWorkSpace\\JingleMusic\\res\\drawable-hdpi\\pause.png"
+    },
+    {
+        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\next.png",
+        "source": "E:\\EclipseWorkSpace\\JingleMusic\\res\\drawable-hdpi\\next.png"
+    },
+    {
+        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_launcher.png",
+        "source": "E:\\EclipseWorkSpace\\JingleMusic\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\list.png",
+        "source": "E:\\EclipseWorkSpace\\JingleMusic\\res\\drawable-hdpi\\list.png"
+    },
+    {
+        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\random.png",
+        "source": "E:\\EclipseWorkSpace\\JingleMusic\\res\\drawable-hdpi\\random.png"
+    },
+    {
+        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\list_recycle.png",
+        "source": "E:\\EclipseWorkSpace\\JingleMusic\\res\\drawable-hdpi\\list_recycle.png"
+    },
+    {
+        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\last.png",
+        "source": "E:\\EclipseWorkSpace\\JingleMusic\\res\\drawable-hdpi\\last.png"
+    },
+    {
+        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\spilit_line.png",
+        "source": "E:\\EclipseWorkSpace\\JingleMusic\\res\\drawable-hdpi\\spilit_line.png"
+    },
+    {
+        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\music_image.png",
+        "source": "E:\\EclipseWorkSpace\\JingleMusic\\res\\drawable-hdpi\\music_image.png"
+    },
+    {
+        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\play.png",
+        "source": "E:\\EclipseWorkSpace\\JingleMusic\\res\\drawable-hdpi\\play.png"
+    },
+    {
+        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\single_recycle.png",
+        "source": "E:\\EclipseWorkSpace\\JingleMusic\\res\\drawable-hdpi\\single_recycle.png"
+    }
+]

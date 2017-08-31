@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">坚果音乐</string>
+    <string name="title_content">坚果音乐</string>
+    <string name="left">返回</string>
+    <string name="right">换源</string>
+    <string name="action_settings">设置</string>
+    <string name="title_activity_about">坚果音乐</string>
+    <string name="author">【版权】：Powered by Jingle.\n</string>
+    <string name="intro">【帮助】：1、因为是利用网络爬虫破解百度音乐API，可能会加载速度慢，请耐心等待。\n
+        2、欢迎试用，请大家保护音乐版权。\n3、支持正版，利国利民。
+</string>
+    <string name="warn">【警告】：支持正版，利国利民！</string>
+    <string name="feedback">【反馈建议】：ljlovelife@foxmail.com</string>
+    <string name="hint">输入影歌曲名或歌手、专辑等关键词</string>
+    <string name="about_menu">帮助与关于</string>
+    <string name="exit_menu">退出程序</string>
+    <string name="title_activity_link_list_activity">坚果播霸</string>
+    <string name="blank"></string>
+    <string name="title_activity_option">坚果播霸</string>
+    <string name="alipay">支付宝赞助</string>
+    <string name="thank">你的赞赏，是我开发的动力。</string>
+    <string name="wechat">微信赞助</string>
+    <string name="go"></string>
+
+</resources>
