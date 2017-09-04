@@ -226,52 +226,52 @@ public class MainActivity extends BaseActivity implements OnClickListener {
             case R.id.pop_baidu:
                 resourceFlag = 0;
                 popupWindow.dismiss();
-                ToastUtil.showToast(this,"百度无损");
+                ToastUtil.showToast(this, "百度无损");
                 break;
             case R.id.pop_wangyi:
                 resourceFlag = 1;
                 popupWindow.dismiss();
-                ToastUtil.showToast(this,"网易云");
+                ToastUtil.showToast(this, "网易云");
                 break;
             case R.id.pop_qq:
                 resourceFlag = 2;
                 popupWindow.dismiss();
-                ToastUtil.showToast(this,"QQ音乐");
+                ToastUtil.showToast(this, "QQ音乐");
                 break;
             case R.id.pop_baidump3:
                 resourceFlag = 3;
                 popupWindow.dismiss();
-                ToastUtil.showToast(this,"百度音乐");
+                ToastUtil.showToast(this, "百度音乐");
                 break;
             case R.id.pop_xiami:
                 resourceFlag = 4;
                 popupWindow.dismiss();
-                ToastUtil.showToast(this,"虾米音乐");
+                ToastUtil.showToast(this, "虾米音乐");
                 break;
             case R.id.pop_kugou:
                 resourceFlag = 5;
                 popupWindow.dismiss();
-                ToastUtil.showToast(this,"酷狗音乐");
+                ToastUtil.showToast(this, "酷狗音乐");
                 break;
             case R.id.pop_kuwo:
                 resourceFlag = 6;
                 popupWindow.dismiss();
-                ToastUtil.showToast(this,"酷我音乐");
+                ToastUtil.showToast(this, "酷我音乐");
                 break;
             case R.id.pop_migu:
                 resourceFlag = 7;
                 popupWindow.dismiss();
-                ToastUtil.showToast(this,"咪咕音乐");
+                ToastUtil.showToast(this, "咪咕音乐");
                 break;
             case R.id.pop_echo:
                 resourceFlag = 8;
                 popupWindow.dismiss();
-                ToastUtil.showToast(this,"echo回声");
+                ToastUtil.showToast(this, "echo回声");
                 break;
             case R.id.pop_yiting:
                 resourceFlag = 9;
                 popupWindow.dismiss();
-                ToastUtil.showToast(this,"一听音乐");
+                ToastUtil.showToast(this, "一听音乐");
                 break;
             case R.id.search:
                 String songName = inpuText.getText().toString().trim();
@@ -279,7 +279,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
                     progressDialog.show();
                     switch (resourceFlag) {
                         case 0:
-                            new Thread(new BaiduMusicRunnable(mHandler,songName)).start();
+                            new Thread(new BaiduMusicRunnable(mHandler, songName)).start();
                             break;
                         case 1:
                             new Thread(new WangyiMusicRunnable(mHandler, songName)).start();
