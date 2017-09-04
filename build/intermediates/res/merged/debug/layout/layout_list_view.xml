@@ -13,20 +13,19 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="#C7EA2D"
-        />
+        android:background="#C7EA2D"/>
 
     <TextView
         android:id="@+id/pop_baidu"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="43dp"
         android:layout_gravity="center"
         android:gravity="center"
         android:text="百度无损"/>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="1.5dp"
         android:background="#C7EA2D"/>
 
     <TextView
@@ -34,12 +33,12 @@
         android:layout_width="match_parent"
         android:layout_gravity="center"
         android:gravity="center"
-        android:layout_height="50dp"
+        android:layout_height="43dp"
         android:text="网易云"/>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="1.5dp"
         android:background="#C7EA2D"/>
 
     <TextView
@@ -47,11 +46,11 @@
         android:layout_width="match_parent"
         android:layout_gravity="center"
         android:gravity="center"
-        android:layout_height="50dp"
+        android:layout_height="43dp"
         android:text="百度音乐"/>
     <View
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="1.5dp"
         android:background="#C7EA2D"/>
 
     <TextView
@@ -59,11 +58,11 @@
         android:layout_width="match_parent"
         android:layout_gravity="center"
         android:gravity="center"
-        android:layout_height="50dp"
+        android:layout_height="43dp"
         android:text="QQ音乐"/>
     <View
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="1.5dp"
         android:background="#C7EA2D"/>
 
     <TextView
@@ -71,12 +70,12 @@
         android:layout_width="match_parent"
         android:layout_gravity="center"
         android:gravity="center"
-        android:layout_height="50dp"
+        android:layout_height="43dp"
         android:text="虾米音乐"/>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="1.5dp"
         android:background="#C7EA2D"
         />
     <TextView
@@ -84,12 +83,12 @@
         android:layout_width="match_parent"
         android:layout_gravity="center"
         android:gravity="center"
-        android:layout_height="50dp"
+        android:layout_height="43dp"
         android:text="酷狗音乐"/>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="1.5dp"
         android:background="#C7EA2D"
         />
     <TextView
@@ -97,12 +96,12 @@
         android:layout_width="match_parent"
         android:layout_gravity="center"
         android:gravity="center"
-        android:layout_height="50dp"
+        android:layout_height="43dp"
         android:text="酷我音乐"/>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="1.5dp"
         android:background="#C7EA2D"
         />
     <TextView
@@ -110,12 +109,12 @@
         android:layout_width="match_parent"
         android:layout_gravity="center"
         android:gravity="center"
-        android:layout_height="50dp"
+        android:layout_height="43dp"
         android:text="咪咕音乐"/>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="1.5dp"
         android:background="#C7EA2D"
         />
     <TextView
@@ -123,12 +122,25 @@
         android:layout_width="match_parent"
         android:layout_gravity="center"
         android:gravity="center"
-        android:layout_height="50dp"
+        android:layout_height="43dp"
         android:text="echo回声"/>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="1.5dp"
+        android:background="#C7EA2D"
+        />
+    <TextView
+        android:id="@+id/pop_yiting"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_height="43dp"
+        android:text="一听音乐"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
         android:background="#C7EA2D"
         />
 

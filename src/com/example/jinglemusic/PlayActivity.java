@@ -9,6 +9,7 @@ import android.content.ServiceConnection;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
+import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
@@ -261,6 +262,8 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
                     musicListView.setAdapter(adapter);
                     musicListView.setOnItemClickListener(this);
                     popupWindow = new PopupWindow(musicListPopup, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
+                    ColorDrawable colorDrawable = new ColorDrawable();
+                    popupWindow.setBackgroundDrawable(colorDrawable);
                     popupWindow.showAsDropDown(musicName, 0, 0);
                     popupWindow.setOutsideTouchable(true);
                 }
@@ -394,6 +397,8 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
                 downLoadListPopup.setAdapter(adapter);
                 //adapter.updateView(0,downLoadListPopup,downloadProgress+"%");
                 PopupWindow popupWindow = new PopupWindow(downLoadMusicListPopup, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
+                ColorDrawable colorDrawable = new ColorDrawable();
+                popupWindow.setBackgroundDrawable(colorDrawable);
                 popupWindow.showAsDropDown(downloadList, 0, 0);
                 popupWindow.setOutsideTouchable(true);
 
