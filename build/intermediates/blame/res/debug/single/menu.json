@@ -4,6 +4,14 @@
         "source": "E:\\EclipseWorkSpace\\JingleMusic\\res\\menu\\about.xml"
     },
     {
+        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
+        "source": "D:\\jingleMusic2\\JingleMusic\\res\\menu\\main.xml"
+    },
+    {
+        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\menu\\about.xml",
+        "source": "D:\\jingleMusic2\\JingleMusic\\res\\menu\\about.xml"
+    },
+    {
         "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
         "source": "E:\\EclipseWorkSpace\\JingleMusic\\res\\menu\\main.xml"
     }

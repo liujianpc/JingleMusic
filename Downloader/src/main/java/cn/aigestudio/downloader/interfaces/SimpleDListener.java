@@ -15,7 +15,7 @@ public class SimpleDListener implements IDListener {
     }
 
     @Override
-    public void onProgress(int progress) {
+    public void onProgress(int progress,String fileName) {
 
     }
 

@@ -54,7 +54,7 @@ public final class AsyncDListener implements IDListener {
                         realListener.onStop(bundle.getInt(EXTRA_ARGS_1));
                         break;
                     case OP_PROGRESS:
-                        realListener.onProgress(bundle.getInt(EXTRA_ARGS_1));
+                        realListener.onProgress(bundle.getInt(EXTRA_ARGS_1),"");
                         break;
                     case OP_FINISH:
                         realListener.onFinish((File) bundle.getSerializable(EXTRA_ARGS_1));
@@ -89,7 +89,7 @@ public final class AsyncDListener implements IDListener {
     }
 
     @Override
-    public void onProgress(int progress) {
+    public void onProgress(int progress,String fileName) {
         Bundle bundle = new Bundle();
         bundle.putInt(EXTRA_ARGS_1, progress);
         invokeOnMainThread(OP_PROGRESS, bundle);

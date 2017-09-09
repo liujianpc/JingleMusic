@@ -49,7 +49,7 @@ class DLTask implements Runnable, IDLThreadListener {
         long currentTime = System.currentTimeMillis();
         if (currentTime - lastTime > 1000) {
             Log.d(TAG, totalProgress + "");
-            if (info.hasListener) info.listener.onProgress(totalProgress);
+            if (info.hasListener) info.listener.onProgress(totalProgress,info.fileName);
             lastTime = currentTime;
         }
     }
@@ -60,7 +60,7 @@ class DLTask implements Runnable, IDLThreadListener {
             DLManager.getInstance(context).removeDLTask(info.baseUrl);
             DLDBManager.getInstance(context).deleteTaskInfo(info.baseUrl);
             if (info.hasListener) {
-                info.listener.onProgress(info.totalBytes);
+                info.listener.onProgress(info.totalBytes,info.fileName);
                 info.listener.onStop(info.totalBytes);
             }
             return;
@@ -83,7 +83,7 @@ class DLTask implements Runnable, IDLThreadListener {
             DLManager.getInstance(context).removeDLTask(info.baseUrl);
             DLDBManager.getInstance(context).deleteTaskInfo(info.baseUrl);
             if (info.hasListener) {
-                info.listener.onProgress(info.totalBytes);
+                info.listener.onProgress(info.totalBytes,info.fileName);
                 info.listener.onFinish(info.file);
             }
             return;
@@ -96,7 +96,7 @@ class DLTask implements Runnable, IDLThreadListener {
             DLManager.getInstance(context).removeDLTask(info.baseUrl);
             DLDBManager.getInstance(context).deleteTaskInfo(info.baseUrl);
             if (info.hasListener) {
-                info.listener.onProgress(info.totalBytes);
+                info.listener.onProgress(info.totalBytes,info.fileName);
                 info.listener.onFinish(info.file);
             }
             DLManager.getInstance(context).addDLTask();

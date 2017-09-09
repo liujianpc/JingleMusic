@@ -10,7 +10,7 @@ public interface IDListener {
 
     void onStart(String fileName, String realUrl, int fileLength);
 
-    void onProgress(int progress);
+    void onProgress(int progress, String fileName);
 
     void onStop(int progress);
 

@@ -31,6 +31,7 @@ public class DLTaskListener implements IDListener {
         onStart(fileName, realUrl);
     }
 
+
     /**
      * 网络连接时回调
      * Callback when connect the network.
@@ -49,7 +50,7 @@ public class DLTaskListener implements IDListener {
      *
      * @param progress 当前的下载进度以100为最大单位 note:the max progress is 100.
      */
-    public void onProgress(int progress) {
+    public void onProgress(int progress, String fileName) {
 
     }
 

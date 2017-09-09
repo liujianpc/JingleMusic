@@ -34,6 +34,7 @@ import android.widget.TextView;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import cn.aigestudio.downloader.bizs.DLManager;
@@ -69,7 +70,7 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
     private int downloadProgress;
     private int fileSize;
     private DownLoadMusicAdapter adapter;
-
+    private HashMap<String, Integer> progressMap = new HashMap<>();
     private List<String> downLoadMusicName = new ArrayList<>();
 
 
@@ -289,25 +290,37 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
                 dlManager.dlStart(musicList.get(position).getSongLink(), Environment.getExternalStorageDirectory().getAbsolutePath(), musicList.get(position).getSongTitle() + fileType, new SimpleDListener() {
                     @Override
                     public void onPrepare() {
+                        progressMap.put(musicList.get(position).songTitle,0);
                         super.onPrepare();
                     }
 
                     @Override
                     public void onStart(String fileName, String realUrl, int fileLength) {
+                        progressMap.put(musicList.get(position).songTitle, 0);
                         ToastUtil.showToast(PlayActivity.this, "下载开始");
                         fileSize = fileLength;
 
                     }
 
                     @Override
-                    public void onProgress(int progress) {
-                        downloadProgress = fileSize > 0 ? progress * 100 / fileSize : 0;
+                    public void onProgress(final int progress, String fileName) {
+                        downloadProgress = fileSize > 0 ? (int) (progress * 100.0 / fileSize) : 0;
+                        downloadProgress = downloadProgress> 100 ? 100 : downloadProgress;
+                        progressMap.put(fileName.split("\\.")[0], downloadProgress);
                         if (adapter != null) {
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
                                     for (int i = 0; i < adapter.getCount(); i++) {
-                                        adapter.updateView(i, downLoadListPopup, downloadProgress + "%");
+                                        String musicName = adapter.getItem(i).musicName;
+                                        int progressFinal;
+                                        if(progressMap != null){
+                                             progressFinal = progressMap.get(musicName);
+                                        }else {
+                                            progressFinal = 0;
+                                        }
+
+                                        adapter.updateView(i, downLoadListPopup, progressFinal + "%");
                                     }
 
                                 }
