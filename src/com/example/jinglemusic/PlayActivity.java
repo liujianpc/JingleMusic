@@ -149,6 +149,7 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
     public void initPlayer() {
         musicName.setText(musicList.get(position).getSongTitle());
         bindIntent = new Intent(this, PlayMusicService.class);
+        bindIntent.putExtra("musicName",musicList.get(position).songTitle);
         bindIntent.putExtra("musicLink", musicList.get(position).getSongLink());
         bindService(bindIntent, serviceConnection, BIND_AUTO_CREATE);//开始绑定service
 
@@ -200,6 +201,7 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
                 isPlaying = true;
                 unbindService(serviceConnection);
                 // stopService(bindIntent);
+                bindIntent.putExtra("musicName",musicList.get(position).songTitle);
                 bindIntent.putExtra("musicLink", musicList.get(position).getSongLink());
                 bindService(bindIntent, serviceConnection, BIND_AUTO_CREATE);
 
@@ -242,6 +244,7 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
                 isPlaying = true;
                 //  new Thread(new PlayRunnable(musicList.get(position).getSongLink(), mediaPlayer)).start();
                 unbindService(serviceConnection);
+                bindIntent.putExtra("musicName",musicList.get(position).songTitle);
                 bindIntent.putExtra("musicLink", musicList.get(position).getSongLink());
                 bindService(bindIntent, serviceConnection, BIND_AUTO_CREATE);
 
@@ -462,8 +465,9 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
         position = positionofMethod;
         String songLink = musicList.get(position).songLink;
         musicName.setText(musicList.get(position).songTitle);
-        bindIntent.putExtra("musicLink", songLink);
         unbindService(serviceConnection);
+        bindIntent.putExtra("musicLink", songLink);
+        bindIntent.putExtra("musicName",musicList.get(position).songTitle);
         bindService(bindIntent, serviceConnection, BIND_AUTO_CREATE);
 
         if (musicList.get(position).getSongPic() != null) {
@@ -505,7 +509,7 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
                             }
                             break;
                     }
-
+                    bindIntent.putExtra("musicName",musicList.get(position).songTitle);
                     bindIntent.putExtra("musicLink", musicList.get(position).getSongLink());
                     bindService(bindIntent, serviceConnection, BIND_AUTO_CREATE);
 

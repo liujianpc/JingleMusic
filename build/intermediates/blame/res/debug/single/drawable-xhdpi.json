@@ -36,6 +36,10 @@
         "source": "D:\\jingleMusic2\\JingleMusic\\res\\drawable-xhdpi\\music_list_popupwindow.9.png"
     },
     {
+        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\music_notifiaction.png",
+        "source": "D:\\jingleMusic2\\JingleMusic\\res\\drawable-xhdpi\\music_notifiaction.png"
+    },
+    {
         "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\go_normal.png",
         "source": "E:\\EclipseWorkSpace\\JingleMusic\\res\\drawable-xhdpi\\go_normal.png"
     },

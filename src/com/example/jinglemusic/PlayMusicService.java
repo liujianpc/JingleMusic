@@ -1,11 +1,16 @@
 package com.example.jinglemusic;
 
+import android.app.Notification;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Binder;
+import android.os.Build;
 import android.os.IBinder;
+import android.os.SystemClock;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.util.Log;
 
 import java.io.IOException;
@@ -18,7 +23,7 @@ import java.util.TimerTask;
 
 public class PlayMusicService extends Service {
     private MediaPlayer mediaPlayer;
-    private String musicLink;
+    private String musicLink,musicName;
     private int musicLength;
     private boolean isComplete;
     private long seekBarPosition;
@@ -32,9 +37,11 @@ public class PlayMusicService extends Service {
     @Override
     public IBinder onBind(Intent intent) {
         musicLink = intent.getStringExtra("musicLink");
+        musicName = intent.getStringExtra("musicName");
         return binder;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onCreate() {
         super.onCreate();
@@ -117,13 +124,21 @@ public class PlayMusicService extends Service {
             //this.mediaPlayer = mediaPlayer;
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
         @Override
         public void run() {
             try {
+
                 mediaPlayer.reset();
                 mediaPlayer.setDataSource(url);
                 mediaPlayer.prepare();
                 mediaPlayer.start();
+                Intent notificationIntent = new Intent(getApplicationContext(),PlayActivity.class);
+                PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(),0,notificationIntent,0);
+                Notification.Builder builder = new Notification.Builder(getApplicationContext());
+                builder.setSmallIcon(R.drawable.music_notifiaction).setTicker("音乐播放中").setContentTitle(musicName).setContentIntent(pendingIntent);
+                builder.setWhen(SystemClock.currentThreadTimeMillis());
+                startForeground(1,builder.build());
                 Timer timer = new Timer();
                 mSendBroadCast("musicLength", mediaPlayer.getDuration());
 
