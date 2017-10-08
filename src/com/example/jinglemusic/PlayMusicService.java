@@ -23,7 +23,7 @@ import java.util.TimerTask;
 
 public class PlayMusicService extends Service {
     private MediaPlayer mediaPlayer;
-    private String musicLink,musicName;
+    private String musicLink, musicName;
     private int musicLength;
     private boolean isComplete;
     private long seekBarPosition;
@@ -133,12 +133,12 @@ public class PlayMusicService extends Service {
                 mediaPlayer.setDataSource(url);
                 mediaPlayer.prepare();
                 mediaPlayer.start();
-                Intent notificationIntent = new Intent(getApplicationContext(),PlayActivity.class);
-                PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(),0,notificationIntent,0);
+                Intent notificationIntent = new Intent(getApplicationContext(), PlayActivity.class);
+                PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, notificationIntent, 0);
                 Notification.Builder builder = new Notification.Builder(getApplicationContext());
-                builder.setSmallIcon(R.drawable.music_notifiaction).setTicker("音乐播放中").setContentTitle(musicName).setContentIntent(pendingIntent);
+                builder.setSmallIcon(R.drawable.music_notifiaction).setTicker(musicName).setContentTitle(musicName).setContentText(musicName).setContentIntent(pendingIntent);
                 builder.setWhen(SystemClock.currentThreadTimeMillis());
-                startForeground(1,builder.build());
+                startForeground(1, builder.build());
                 Timer timer = new Timer();
                 mSendBroadCast("musicLength", mediaPlayer.getDuration());
 
@@ -147,17 +147,16 @@ public class PlayMusicService extends Service {
                     @Override
                     public void run() {
                         // TODO Auto-generated method stub
-                        if (mediaPlayer != null){
-                            if (mediaPlayer.isPlaying()){
+                        if (mediaPlayer != null) {
+                            if (mediaPlayer.isPlaying()) {
                                 mSendBroadCast("seekBarPosition", mediaPlayer.getCurrentPosition());
                             }
                         }
                     }
                 }, 0, 1000);
-            }catch (IllegalStateException e){
-                Log.e("liujian",e.toString());
-            }
-            catch (IOException | IllegalArgumentException  | SecurityException e) {
+            } catch (IllegalStateException e) {
+                Log.e("liujian", e.toString());
+            } catch (IOException | IllegalArgumentException | SecurityException e) {
                 Log.e("liujian", e.toString());
             }
         }
