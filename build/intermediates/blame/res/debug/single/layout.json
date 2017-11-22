@@ -12,12 +12,12 @@
         "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\c59d23d4ecb51fcb78ff0bb5f7753b77e93108ab\\output\\res\\layout\\abc_action_bar_title_item.xml"
     },
     {
-        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\music_item.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\res\\layout\\music_item.xml"
-    },
-    {
         "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_chronometer.xml",
         "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\318eab1a4630b6e3d5ccab5648cf524a5f762d96\\output\\res\\layout\\notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\music_item.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\res\\layout\\music_item.xml"
     },
     {
         "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",

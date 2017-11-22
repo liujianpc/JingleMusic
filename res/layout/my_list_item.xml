@@ -11,13 +11,14 @@
         android:layout_height="50dp"
         android:gravity="center"
         android:maxLines="3"
-        android:shadowColor="@color/mycolor" />
+        android:shadowColor="@color/mycolor"
+        android:textColor="@color/black" />
 
-    <ImageView
+    <View
         android:id="@+id/split_line"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/spilit_line" />
+        android:background="@color/mycolor2"
+        android:scaleType="fitXY" />
 
 </LinearLayout>

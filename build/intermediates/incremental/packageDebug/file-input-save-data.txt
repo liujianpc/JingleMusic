@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Nov 22 22:42:21 CST 2017
+#Thu Nov 23 00:31:41 CST 2017
 210.set=ANDROID_RESOURCE
 282.file=C\:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xxhdpi-v4\\abc_popup_background_mtrl_mult.9.png
 14.set=ANDROID_RESOURCE

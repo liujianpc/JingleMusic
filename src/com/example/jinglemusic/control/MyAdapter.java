@@ -62,7 +62,7 @@ public class MyAdapter extends RecyclerView.Adapter {
         }
     }
 
-    public static interface OnItemClickListener {
+    public interface OnItemClickListener {
         void onItemClick(View view);
     }
     /*private int resourceId;

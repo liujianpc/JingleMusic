@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\XP-PC-XXX\StudioProjects\JingleMusic\AndroidManifest.xml:2:1-52:12
+ADDED from C:\Users\XP-PC-XXX\StudioProjects\JingleMusic\AndroidManifest.xml:2:1-54:12
 	package
 		ADDED from C:\Users\XP-PC-XXX\StudioProjects\JingleMusic\AndroidManifest.xml:3:5-38
 	android:versionName
@@ -54,7 +54,7 @@ ADDED from C:\Users\XP-PC-XXX\StudioProjects\JingleMusic\AndroidManifest.xml:15:
 	android:name
 		ADDED from C:\Users\XP-PC-XXX\StudioProjects\JingleMusic\AndroidManifest.xml:15:22-76
 application
-ADDED from C:\Users\XP-PC-XXX\StudioProjects\JingleMusic\AndroidManifest.xml:17:5-50:19
+ADDED from C:\Users\XP-PC-XXX\StudioProjects\JingleMusic\AndroidManifest.xml:17:5-52:19
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\XP-PC-XXX\.android\build-cache\6a60c8b6dcdcca2ca468b073cf928a3d371a7c78\output\AndroidManifest.xml:24:5-28:19
 	android:label
 		ADDED from C:\Users\XP-PC-XXX\StudioProjects\JingleMusic\AndroidManifest.xml:20:9-41
@@ -89,7 +89,7 @@ ADDED from C:\Users\XP-PC-XXX\StudioProjects\JingleMusic\AndroidManifest.xml:32:
 	android:name
 		ADDED from C:\Users\XP-PC-XXX\StudioProjects\JingleMusic\AndroidManifest.xml:32:27-74
 activity#com.example.jinglemusic.ui.AboutActivity
-ADDED from C:\Users\XP-PC-XXX\StudioProjects\JingleMusic\AndroidManifest.xml:35:9-38:56
+ADDED from C:\Users\XP-PC-XXX\StudioProjects\JingleMusic\AndroidManifest.xml:35:9-40:20
 	android:label
 		ADDED from C:\Users\XP-PC-XXX\StudioProjects\JingleMusic\AndroidManifest.xml:37:13-45
 	android:launchMode
@@ -97,19 +97,19 @@ ADDED from C:\Users\XP-PC-XXX\StudioProjects\JingleMusic\AndroidManifest.xml:35:
 	android:name
 		ADDED from C:\Users\XP-PC-XXX\StudioProjects\JingleMusic\AndroidManifest.xml:36:13-45
 activity#com.example.jinglemusic.ui.PlayActivity
-ADDED from C:\Users\XP-PC-XXX\StudioProjects\JingleMusic\AndroidManifest.xml:39:9-45:20
+ADDED from C:\Users\XP-PC-XXX\StudioProjects\JingleMusic\AndroidManifest.xml:41:9-47:20
 	android:screenOrientation
-		ADDED from C:\Users\XP-PC-XXX\StudioProjects\JingleMusic\AndroidManifest.xml:43:13-49
+		ADDED from C:\Users\XP-PC-XXX\StudioProjects\JingleMusic\AndroidManifest.xml:45:13-49
 	android:launchMode
-		ADDED from C:\Users\XP-PC-XXX\StudioProjects\JingleMusic\AndroidManifest.xml:42:13-44
+		ADDED from C:\Users\XP-PC-XXX\StudioProjects\JingleMusic\AndroidManifest.xml:44:13-44
 	android:configChanges
-		ADDED from C:\Users\XP-PC-XXX\StudioProjects\JingleMusic\AndroidManifest.xml:41:13-83
+		ADDED from C:\Users\XP-PC-XXX\StudioProjects\JingleMusic\AndroidManifest.xml:43:13-83
 	android:name
-		ADDED from C:\Users\XP-PC-XXX\StudioProjects\JingleMusic\AndroidManifest.xml:40:13-44
+		ADDED from C:\Users\XP-PC-XXX\StudioProjects\JingleMusic\AndroidManifest.xml:42:13-44
 service#com.example.jinglemusic.ui.PlayMusicService
-ADDED from C:\Users\XP-PC-XXX\StudioProjects\JingleMusic\AndroidManifest.xml:47:9-56
+ADDED from C:\Users\XP-PC-XXX\StudioProjects\JingleMusic\AndroidManifest.xml:49:9-56
 	android:name
-		ADDED from C:\Users\XP-PC-XXX\StudioProjects\JingleMusic\AndroidManifest.xml:47:18-53
+		ADDED from C:\Users\XP-PC-XXX\StudioProjects\JingleMusic\AndroidManifest.xml:49:18-53
 meta-data#android.arch.lifecycle.VERSION
 ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\XP-PC-XXX\.android\build-cache\6a60c8b6dcdcca2ca468b073cf928a3d371a7c78\output\AndroidManifest.xml:25:9-27:47
 	android:value
