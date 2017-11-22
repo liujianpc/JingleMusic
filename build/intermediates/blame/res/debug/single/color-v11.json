@@ -1,26 +1,10 @@
 [
     {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_light.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
-    },
-    {
         "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_dark.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
-    },
-    {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_dark.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_dark.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\c59d23d4ecb51fcb78ff0bb5f7753b77e93108ab\\output\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
     },
     {
         "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_light.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
-    },
-    {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_light.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\c59d23d4ecb51fcb78ff0bb5f7753b77e93108ab\\output\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
     }
 ]
