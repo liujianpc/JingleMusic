@@ -1,14 +1,6 @@
 [
     {
         "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout-v16\\notification_template_custom_big.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout-v16\\notification_template_custom_big.xml"
-    },
-    {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout-v16\\notification_template_custom_big.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout-v16\\notification_template_custom_big.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout-v16\\notification_template_custom_big.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout-v16\\notification_template_custom_big.xml"
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\318eab1a4630b6e3d5ccab5648cf524a5f762d96\\output\\res\\layout-v16\\notification_template_custom_big.xml"
     }
 ]

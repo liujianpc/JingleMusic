@@ -22,6 +22,7 @@ import java.util.List;
 public class MusicListAdapter extends ArrayAdapter<Music> {
 
     private int resId;
+
     /**
      * Constructor
      *
@@ -36,20 +37,19 @@ public class MusicListAdapter extends ArrayAdapter<Music> {
     }
 
 
-
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        Music music =  getItem(position);
+        Music music = getItem(position);
         View view;
         ViewHolder viewHolder;
         if (convertView == null) {
             viewHolder = new ViewHolder();
-            view = LayoutInflater.from(getContext()).inflate(resId,null);
+            view = LayoutInflater.from(getContext()).inflate(resId, null);
             TextView textView = (TextView) view.findViewById(R.id.music_list_name);
             viewHolder.musicName = textView;
             view.setTag(viewHolder);
-        }else {
+        } else {
             view = convertView;
             viewHolder = (ViewHolder) view.getTag();
         }
@@ -58,7 +58,7 @@ public class MusicListAdapter extends ArrayAdapter<Music> {
 
     }
 
-    class ViewHolder{
+    class ViewHolder {
         TextView musicName;
     }
 }

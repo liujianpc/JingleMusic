@@ -75,7 +75,7 @@ public class WangyiMusicRunnable implements Runnable {
                 songName = songName + "——" + artist;
                 String content = NetworkUtil.getJsonByGet("http://music.ocrosoft.com/GetMusicLink.php?id=" + songId).replaceAll("\\(", "");
                 JSONObject jsonObject1 = new JSONObject(content);
-                String songLink = jsonObject1.getString("mp3Url").replace("\n","");
+                String songLink = jsonObject1.getString("mp3Url").replace("\n", "");
 
                 String songPic = json_song.getJSONObject("album").getString("blurPicUrl");
                 // JSONObject jsonLrc = new JSONObject(getJsonByGet("http://music.163.com/api/song/lyric?os=pc&id="+songId+"&lv=-1&kv=-1&tv=-1"));

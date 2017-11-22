@@ -1,319 +1,15 @@
 [
     {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_singlechoice_material.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\select_dialog_singlechoice_material.xml"
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_multichoice_material.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\c59d23d4ecb51fcb78ff0bb5f7753b77e93108ab\\output\\res\\layout\\select_dialog_multichoice_material.xml"
     },
     {
         "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\my_list_item.xml",
         "source": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\res\\layout\\my_list_item.xml"
     },
     {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\abc_action_menu_item_layout.xml"
-    },
-    {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\activity_play.xml",
-        "source": "D:\\jingleMusic2\\JingleMusic\\res\\layout\\activity_play.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\activity_about.xml",
-        "source": "E:\\EclipseWorkSpace\\JingleMusic\\res\\layout\\activity_about.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\music_list_item.xml",
-        "source": "E:\\EclipseWorkSpace\\JingleMusic\\res\\layout\\music_list_item.xml"
-    },
-    {
-        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_item_material.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\select_dialog_item_material.xml"
-    },
-    {
-        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_action.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\notification_action.xml"
-    },
-    {
-        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_select_dialog_material.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\abc_select_dialog_material.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\abc_popup_menu_item_layout.xml"
-    },
-    {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_item_material.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\select_dialog_item_material.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
-    },
-    {
-        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\abc_screen_simple.xml"
-    },
-    {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\my_list_item.xml",
-        "source": "D:\\jingleMusic2\\JingleMusic\\res\\layout\\my_list_item.xml"
-    },
-    {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\music_item.xml",
-        "source": "D:\\jingleMusic2\\JingleMusic\\res\\layout\\music_item.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\notification_template_media.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_button_bar_material.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
-    },
-    {
-        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\abc_list_menu_item_icon.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\custom_title.xml",
-        "source": "E:\\EclipseWorkSpace\\JingleMusic\\res\\layout\\custom_title.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\abc_list_menu_item_icon.xml"
-    },
-    {
-        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
-    },
-    {
-        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
-    },
-    {
-        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\res\\layout\\activity_main.xml"
-    },
-    {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\download_music_item.xml",
-        "source": "D:\\jingleMusic2\\JingleMusic\\res\\layout\\download_music_item.xml"
-    },
-    {
-        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\layout_list_view.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\res\\layout\\layout_list_view.xml"
-    },
-    {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
-    },
-    {
-        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\music_list_item.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\res\\layout\\music_list_item.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_title_material.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\abc_alert_dialog_title_material.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
-        "source": "E:\\EclipseWorkSpace\\JingleMusic\\res\\layout\\activity_main.xml"
-    },
-    {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_chronometer.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\notification_template_part_chronometer.xml"
-    },
-    {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_title_material.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\abc_alert_dialog_title_material.xml"
-    },
-    {
-        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\abc_action_menu_layout.xml"
-    },
-    {
-        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_action_tombstone.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\notification_action_tombstone.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\abc_activity_chooser_view_list_item.xml"
-    },
-    {
-        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\abc_action_menu_item_layout.xml"
-    },
-    {
-        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\abc_activity_chooser_view_list_item.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_custom_big.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\notification_template_custom_big.xml"
-    },
-    {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\abc_screen_toolbar.xml"
-    },
-    {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_custom_big.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\notification_template_custom_big.xml"
-    },
-    {
-        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\abc_screen_toolbar.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\my_list_item.xml",
-        "source": "E:\\EclipseWorkSpace\\JingleMusic\\res\\layout\\my_list_item.xml"
-    },
-    {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\support_simple_spinner_dropdown_item.xml"
-    },
-    {
-        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\download_music_item.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\res\\layout\\download_music_item.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_up_container.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\abc_action_bar_up_container.xml"
-    },
-    {
-        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\support_simple_spinner_dropdown_item.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\abc_action_menu_layout.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_lines_media.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\notification_template_lines_media.xml"
-    },
-    {
-        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\music_list_popupwindow.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\res\\layout\\music_list_popupwindow.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\abc_screen_toolbar.xml"
-    },
-    {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\notification_template_media.xml"
-    },
-    {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\abc_activity_chooser_view_list_item.xml"
-    },
-    {
-        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\download_musiclist_popupwindow.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\res\\layout\\download_musiclist_popupwindow.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_icon_group.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\notification_template_icon_group.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\abc_list_menu_item_checkbox.xml"
-    },
-    {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_multichoice_material.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\select_dialog_multichoice_material.xml"
-    },
-    {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_button_bar_material.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
-    },
-    {
-        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_material.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\abc_alert_dialog_material.xml"
-    },
-    {
-        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_time.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\notification_template_part_time.xml"
-    },
-    {
-        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\custom_title.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\res\\layout\\custom_title.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_action_tombstone.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\notification_action_tombstone.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_header_item_layout.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\abc_popup_menu_header_item_layout.xml"
-    },
-    {
-        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_content_include.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\abc_screen_content_include.xml"
-    },
-    {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\abc_list_menu_item_layout.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_select_dialog_material.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\abc_select_dialog_material.xml"
-    },
-    {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\layout_list_view.xml",
-        "source": "D:\\jingleMusic2\\JingleMusic\\res\\layout\\layout_list_view.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\abc_action_mode_bar.xml"
-    },
-    {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\abc_expanded_menu_layout.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\music_list_popupwindow.xml",
-        "source": "E:\\EclipseWorkSpace\\JingleMusic\\res\\layout\\music_list_popupwindow.xml"
-    },
-    {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media_custom.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\notification_template_media_custom.xml"
-    },
-    {
-        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\abc_action_mode_bar.xml"
-    },
-    {
-        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\notification_template_media.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media_custom.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\notification_template_media_custom.xml"
-    },
-    {
-        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_multichoice_material.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\select_dialog_multichoice_material.xml"
-    },
-    {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\music_list_popupwindow.xml",
-        "source": "D:\\jingleMusic2\\JingleMusic\\res\\layout\\music_list_popupwindow.xml"
-    },
-    {
         "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\abc_action_bar_title_item.xml"
-    },
-    {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\abc_activity_chooser_view.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item_material.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\abc_action_mode_close_item_material.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\abc_expanded_menu_layout.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_multichoice_material.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\select_dialog_multichoice_material.xml"
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\c59d23d4ecb51fcb78ff0bb5f7753b77e93108ab\\output\\res\\layout\\abc_action_bar_title_item.xml"
     },
     {
         "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\music_item.xml",
@@ -321,294 +17,282 @@
     },
     {
         "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_chronometer.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\notification_template_part_chronometer.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_item_material.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\select_dialog_item_material.xml"
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\318eab1a4630b6e3d5ccab5648cf524a5f762d96\\output\\res\\layout\\notification_template_part_chronometer.xml"
     },
     {
         "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\abc_list_menu_item_checkbox.xml"
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\c59d23d4ecb51fcb78ff0bb5f7753b77e93108ab\\output\\res\\layout\\abc_list_menu_item_checkbox.xml"
     },
     {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\download_music_item.xml",
-        "source": "E:\\EclipseWorkSpace\\JingleMusic\\res\\layout\\download_music_item.xml"
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_item_material.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\c59d23d4ecb51fcb78ff0bb5f7753b77e93108ab\\output\\res\\layout\\select_dialog_item_material.xml"
     },
     {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\abc_list_menu_item_layout.xml"
-    },
-    {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_dialog_title_material.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\abc_dialog_title_material.xml"
-    },
-    {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_lines_media.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\notification_template_lines_media.xml"
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_action.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\318eab1a4630b6e3d5ccab5648cf524a5f762d96\\output\\res\\layout\\notification_action.xml"
     },
     {
         "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\abc_list_menu_item_radio.xml"
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\c59d23d4ecb51fcb78ff0bb5f7753b77e93108ab\\output\\res\\layout\\abc_list_menu_item_radio.xml"
     },
     {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_material.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\abc_alert_dialog_material.xml"
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_select_dialog_material.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\c59d23d4ecb51fcb78ff0bb5f7753b77e93108ab\\output\\res\\layout\\abc_select_dialog_material.xml"
     },
     {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\abc_action_menu_item_layout.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\activity_play.xml",
-        "source": "E:\\EclipseWorkSpace\\JingleMusic\\res\\layout\\activity_play.xml"
-    },
-    {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_action.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\notification_action.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\abc_screen_simple.xml"
-    },
-    {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_dialog_title_material.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\abc_dialog_title_material.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_material.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\abc_alert_dialog_material.xml"
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_snackbar_include.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\7dbb9c0d050aa98689e3d962cc9b327110dc09a1\\output\\res\\layout\\design_layout_snackbar_include.xml"
     },
     {
         "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\abc_activity_chooser_view.xml"
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\c59d23d4ecb51fcb78ff0bb5f7753b77e93108ab\\output\\res\\layout\\abc_activity_chooser_view.xml"
     },
     {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\c59d23d4ecb51fcb78ff0bb5f7753b77e93108ab\\output\\res\\layout\\abc_screen_simple.xml"
     },
     {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_content_include.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\abc_screen_content_include.xml"
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_menu_item.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\7dbb9c0d050aa98689e3d962cc9b327110dc09a1\\output\\res\\layout\\design_navigation_menu_item.xml"
     },
     {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\download_musiclist_popupwindow.xml",
-        "source": "E:\\EclipseWorkSpace\\JingleMusic\\res\\layout\\download_musiclist_popupwindow.xml"
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\c59d23d4ecb51fcb78ff0bb5f7753b77e93108ab\\output\\res\\layout\\abc_list_menu_item_icon.xml"
     },
     {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_time.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\notification_template_part_time.xml"
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_icon.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\7dbb9c0d050aa98689e3d962cc9b327110dc09a1\\output\\res\\layout\\design_layout_tab_icon.xml"
     },
     {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\abc_action_bar_title_item.xml"
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_menu.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\7dbb9c0d050aa98689e3d962cc9b327110dc09a1\\output\\res\\layout\\design_navigation_menu.xml"
     },
     {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_chronometer.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\notification_template_part_chronometer.xml"
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\c59d23d4ecb51fcb78ff0bb5f7753b77e93108ab\\output\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
     },
     {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\abc_action_bar_title_item.xml"
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\c59d23d4ecb51fcb78ff0bb5f7753b77e93108ab\\output\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
     },
     {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\abc_list_menu_item_icon.xml"
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media_narrow_custom.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\487e3a637ac0a8fb8d5652e93c536c41fbbd8887\\output\\res\\layout\\notification_template_big_media_narrow_custom.xml"
     },
     {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\download_musiclist_popupwindow.xml",
-        "source": "D:\\jingleMusic2\\JingleMusic\\res\\layout\\download_musiclist_popupwindow.xml"
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\layout_list_view.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\res\\layout\\layout_list_view.xml"
     },
     {
         "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\abc_list_menu_item_layout.xml"
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\c59d23d4ecb51fcb78ff0bb5f7753b77e93108ab\\output\\res\\layout\\abc_list_menu_item_layout.xml"
     },
     {
         "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_lines_media.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\notification_template_lines_media.xml"
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\487e3a637ac0a8fb8d5652e93c536c41fbbd8887\\output\\res\\layout\\notification_template_lines_media.xml"
     },
     {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\abc_action_menu_layout.xml"
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_media_cancel_action.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\487e3a637ac0a8fb8d5652e93c536c41fbbd8887\\output\\res\\layout\\notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\music_list_item.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\res\\layout\\music_list_item.xml"
     },
     {
         "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\abc_search_view.xml"
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\c59d23d4ecb51fcb78ff0bb5f7753b77e93108ab\\output\\res\\layout\\abc_search_view.xml"
     },
     {
         "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_dialog_title_material.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\abc_dialog_title_material.xml"
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\c59d23d4ecb51fcb78ff0bb5f7753b77e93108ab\\output\\res\\layout\\abc_dialog_title_material.xml"
     },
     {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\music_list_item.xml",
-        "source": "D:\\jingleMusic2\\JingleMusic\\res\\layout\\music_list_item.xml"
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\activity_scrolling.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\res\\layout\\activity_scrolling.xml"
     },
     {
         "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\abc_expanded_menu_layout.xml"
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\c59d23d4ecb51fcb78ff0bb5f7753b77e93108ab\\output\\res\\layout\\abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\c59d23d4ecb51fcb78ff0bb5f7753b77e93108ab\\output\\res\\layout\\abc_action_menu_layout.xml"
     },
     {
         "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_icon_group.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\notification_template_icon_group.xml"
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\318eab1a4630b6e3d5ccab5648cf524a5f762d96\\output\\res\\layout\\notification_template_icon_group.xml"
     },
     {
         "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\abc_popup_menu_item_layout.xml"
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\c59d23d4ecb51fcb78ff0bb5f7753b77e93108ab\\output\\res\\layout\\abc_popup_menu_item_layout.xml"
     },
     {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\abc_list_menu_item_radio.xml"
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\318eab1a4630b6e3d5ccab5648cf524a5f762d96\\output\\res\\layout\\notification_action_tombstone.xml"
     },
     {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_header_item_layout.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\abc_popup_menu_header_item_layout.xml"
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_media_action.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\487e3a637ac0a8fb8d5652e93c536c41fbbd8887\\output\\res\\layout\\notification_media_action.xml"
     },
     {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_icon_group.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\notification_template_icon_group.xml"
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\tooltip.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\c59d23d4ecb51fcb78ff0bb5f7753b77e93108ab\\output\\res\\layout\\tooltip.xml"
+    },
+    {
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\design_bottom_sheet_dialog.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\7dbb9c0d050aa98689e3d962cc9b327110dc09a1\\output\\res\\layout\\design_bottom_sheet_dialog.xml"
+    },
+    {
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\c59d23d4ecb51fcb78ff0bb5f7753b77e93108ab\\output\\res\\layout\\abc_action_menu_item_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\design_bottom_navigation_item.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\7dbb9c0d050aa98689e3d962cc9b327110dc09a1\\output\\res\\layout\\design_bottom_navigation_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\c59d23d4ecb51fcb78ff0bb5f7753b77e93108ab\\output\\res\\layout\\abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\c59d23d4ecb51fcb78ff0bb5f7753b77e93108ab\\output\\res\\layout\\abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_separator.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\7dbb9c0d050aa98689e3d962cc9b327110dc09a1\\output\\res\\layout\\design_navigation_item_separator.xml"
     },
     {
         "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\activity_play.xml",
         "source": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\res\\layout\\activity_play.xml"
     },
     {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_select_dialog_material.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\abc_select_dialog_material.xml"
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\download_music_item.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\res\\layout\\download_music_item.xml"
     },
     {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_action_tombstone.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\notification_action_tombstone.xml"
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media_custom.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\487e3a637ac0a8fb8d5652e93c536c41fbbd8887\\output\\res\\layout\\notification_template_big_media_custom.xml"
     },
     {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_time.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\notification_template_part_time.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_action.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\notification_action.xml"
-    },
-    {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\abc_search_view.xml"
-    },
-    {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\abc_popup_menu_item_layout.xml"
-    },
-    {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item_material.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\abc_action_mode_close_item_material.xml"
-    },
-    {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\abc_list_menu_item_checkbox.xml"
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\c59d23d4ecb51fcb78ff0bb5f7753b77e93108ab\\output\\res\\layout\\support_simple_spinner_dropdown_item.xml"
     },
     {
         "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_custom_big.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\notification_template_custom_big.xml"
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\318eab1a4630b6e3d5ccab5648cf524a5f762d96\\output\\res\\layout\\notification_template_custom_big.xml"
+    },
+    {
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\487e3a637ac0a8fb8d5652e93c536c41fbbd8887\\output\\res\\layout\\notification_template_big_media.xml"
     },
     {
         "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item_material.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\abc_action_mode_close_item_material.xml"
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\c59d23d4ecb51fcb78ff0bb5f7753b77e93108ab\\output\\res\\layout\\abc_action_mode_close_item_material.xml"
     },
     {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\music_list_popupwindow.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\res\\layout\\music_list_popupwindow.xml"
+    },
+    {
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\design_text_input_password_icon.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\7dbb9c0d050aa98689e3d962cc9b327110dc09a1\\output\\res\\layout\\design_text_input_password_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\download_musiclist_popupwindow.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\res\\layout\\download_musiclist_popupwindow.xml"
     },
     {
         "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_button_bar_material.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\c59d23d4ecb51fcb78ff0bb5f7753b77e93108ab\\output\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
     },
     {
         "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
         "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
     },
     {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\activity_about.xml",
-        "source": "D:\\jingleMusic2\\JingleMusic\\res\\layout\\activity_about.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\support_simple_spinner_dropdown_item.xml"
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_text.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\7dbb9c0d050aa98689e3d962cc9b327110dc09a1\\output\\res\\layout\\design_layout_tab_text.xml"
     },
     {
         "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_singlechoice_material.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\select_dialog_singlechoice_material.xml"
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\c59d23d4ecb51fcb78ff0bb5f7753b77e93108ab\\output\\res\\layout\\select_dialog_singlechoice_material.xml"
     },
     {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\custom_title.xml",
-        "source": "D:\\jingleMusic2\\JingleMusic\\res\\layout\\custom_title.xml"
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_material.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\c59d23d4ecb51fcb78ff0bb5f7753b77e93108ab\\output\\res\\layout\\abc_alert_dialog_material.xml"
     },
     {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\abc_search_view.xml"
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_time.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\318eab1a4630b6e3d5ccab5648cf524a5f762d96\\output\\res\\layout\\notification_template_part_time.xml"
+    },
+    {
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\custom_title.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\res\\layout\\custom_title.xml"
     },
     {
         "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_up_container.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\abc_action_bar_up_container.xml"
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\c59d23d4ecb51fcb78ff0bb5f7753b77e93108ab\\output\\res\\layout\\abc_action_bar_up_container.xml"
     },
     {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\music_item.xml",
-        "source": "E:\\EclipseWorkSpace\\JingleMusic\\res\\layout\\music_item.xml"
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\design_menu_item_action_area.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\7dbb9c0d050aa98689e3d962cc9b327110dc09a1\\output\\res\\layout\\design_menu_item_action_area.xml"
     },
     {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\content_scrolling.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\res\\layout\\content_scrolling.xml"
     },
     {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
-        "source": "D:\\jingleMusic2\\JingleMusic\\res\\layout\\activity_main.xml"
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_content_include.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\c59d23d4ecb51fcb78ff0bb5f7753b77e93108ab\\output\\res\\layout\\abc_screen_content_include.xml"
     },
     {
         "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_title_material.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\abc_alert_dialog_title_material.xml"
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\c59d23d4ecb51fcb78ff0bb5f7753b77e93108ab\\output\\res\\layout\\abc_alert_dialog_title_material.xml"
     },
     {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\abc_action_mode_bar.xml"
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media_narrow.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\487e3a637ac0a8fb8d5652e93c536c41fbbd8887\\output\\res\\layout\\notification_template_big_media_narrow.xml"
     },
     {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_singlechoice_material.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\select_dialog_singlechoice_material.xml"
-    },
-    {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_up_container.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\abc_action_bar_up_container.xml"
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_header.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\7dbb9c0d050aa98689e3d962cc9b327110dc09a1\\output\\res\\layout\\design_navigation_item_header.xml"
     },
     {
         "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_header_item_layout.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\abc_popup_menu_header_item_layout.xml"
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\c59d23d4ecb51fcb78ff0bb5f7753b77e93108ab\\output\\res\\layout\\abc_popup_menu_header_item_layout.xml"
     },
     {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_content_include.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\abc_screen_content_include.xml"
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_snackbar.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\7dbb9c0d050aa98689e3d962cc9b327110dc09a1\\output\\res\\layout\\design_layout_snackbar.xml"
     },
     {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\abc_list_menu_item_radio.xml"
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\c59d23d4ecb51fcb78ff0bb5f7753b77e93108ab\\output\\res\\layout\\abc_action_mode_bar.xml"
     },
     {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\0629af3fe761fd21e5a60046583ff8820b64be9f\\output\\res\\layout\\abc_activity_chooser_view.xml"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\layout_list_view.xml",
-        "source": "E:\\EclipseWorkSpace\\JingleMusic\\res\\layout\\layout_list_view.xml"
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\487e3a637ac0a8fb8d5652e93c536c41fbbd8887\\output\\res\\layout\\notification_template_media.xml"
     },
     {
         "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media_custom.xml",
-        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\8900ab33ce90048555590226bc4ad7166f3f69dd\\output\\res\\layout\\notification_template_media_custom.xml"
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\487e3a637ac0a8fb8d5652e93c536c41fbbd8887\\output\\res\\layout\\notification_template_media_custom.xml"
+    },
+    {
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_subheader.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\7dbb9c0d050aa98689e3d962cc9b327110dc09a1\\output\\res\\layout\\design_navigation_item_subheader.xml"
     },
     {
         "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\activity_about.xml",
         "source": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\res\\layout\\activity_about.xml"
     },
     {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
-        "source": "C:\\Users\\liujian\\.android\\build-cache\\7e856a6ea122bffa3a55d5eb5b808539bb46a069\\output\\res\\layout\\abc_screen_simple.xml"
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\.android\\build-cache\\7dbb9c0d050aa98689e3d962cc9b327110dc09a1\\output\\res\\layout\\design_navigation_item.xml"
     }
 ]
