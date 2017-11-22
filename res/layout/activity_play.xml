@@ -4,22 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.jinglemusic.PlayActivity">
+    tools:context="com.example.jinglemusic.ui.PlayActivity">
+
     <ImageView
         android:id="@+id/back_ground"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/gradient_bg"
-        />
+        android:background="@drawable/gradient_bg" />
+
     <RelativeLayout
         android:id="@+id/controller"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-
         android:layout_alignParentBottom="true"
+
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="15dp">
 
         <ImageButton
             android:id="@+id/play_model"
@@ -64,20 +65,20 @@
             android:layout_marginRight="10dp"
             android:background="@drawable/list" />
     </RelativeLayout>
+
     <ImageButton
         android:id="@+id/download"
-        android:layout_centerHorizontal="true"
-        android:layout_above="@+id/seekbar_wrapper"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/download_btn"
-        android:layout_marginBottom="25dp"
-        />
-   <!-- <com.example.jinglemusic.LyricView
-        android:id="@+id/lrc_View"
         android:layout_above="@+id/seekbar_wrapper"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />-->
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/download_btn" />
+    <!-- <com.example.jinglemusic.ui.LyricViewView
+          android:id="@+id/lrc_View"
+          android:layout_above="@+id/seekbar_wrapper"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content" />-->
     <RelativeLayout
         android:id="@+id/seekbar_wrapper"
         android:layout_width="match_parent"
@@ -98,8 +99,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:singleLine="true"
             android:layout_toRightOf="@id/music_seekbar"
+            android:singleLine="true"
             android:text="00:00" />
 
         <TextView
@@ -107,8 +108,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:singleLine="true"
             android:layout_toLeftOf="@id/music_seekbar"
+            android:singleLine="true"
             android:text="00:00" />
     </RelativeLayout>
 
@@ -139,21 +140,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:singleLine="true"
             android:ellipsize="end"
-            android:textColor="#84D945"
+            android:singleLine="true"
             android:text=""
+            android:textColor="#84D945"
             android:textSize="16sp" />
     </RelativeLayout>
+
     <ImageButton
         android:id="@+id/download_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/download_list"
-        />
+        android:background="@drawable/download_list" />
 
 </RelativeLayout>

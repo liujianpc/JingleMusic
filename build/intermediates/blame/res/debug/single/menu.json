@@ -12,6 +12,14 @@
         "source": "D:\\jingleMusic2\\JingleMusic\\res\\menu\\about.xml"
     },
     {
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\menu\\about.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\res\\menu\\about.xml"
+    },
+    {
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
+        "source": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\res\\menu\\main.xml"
+    },
+    {
         "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
         "source": "E:\\EclipseWorkSpace\\JingleMusic\\res\\menu\\main.xml"
     }

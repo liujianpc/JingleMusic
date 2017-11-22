@@ -8,10 +8,10 @@
         android:layout_height="wrap_content"
         android:orientation="vertical" >
 
-        <com.example.jinglemusic.CustomTitle
+        <com.example.jinglemusic.ui.CustomTitle
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
-        </com.example.jinglemusic.CustomTitle>
+        </com.example.jinglemusic.ui.CustomTitle>
 
         <TextView
             android:layout_width="match_parent"

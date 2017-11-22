@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="D:\jingleMusic2\JingleMusic\src\main\shaders"/></dataSet><dataSet config="debug"><source path="D:\jingleMusic2\JingleMusic\build-types\debug\shaders"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="C:\Users\XP-PC-XXX\StudioProjects\JingleMusic\src\main\shaders"/></dataSet><dataSet config="debug"><source path="C:\Users\XP-PC-XXX\StudioProjects\JingleMusic\build-types\debug\shaders"/></dataSet></merger>

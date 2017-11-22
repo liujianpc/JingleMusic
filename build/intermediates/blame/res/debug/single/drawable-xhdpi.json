@@ -1,19 +1,7 @@
 [
     {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_launcher.png",
-        "source": "D:\\jingleMusic2\\JingleMusic\\res\\drawable-xhdpi\\ic_launcher.png"
-    },
-    {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\go_pressed.png",
-        "source": "D:\\jingleMusic2\\JingleMusic\\res\\drawable-xhdpi\\go_pressed.png"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\download_pressed.png",
-        "source": "E:\\EclipseWorkSpace\\JingleMusic\\res\\drawable-xhdpi\\download_pressed.png"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\go_pressed.png",
-        "source": "E:\\EclipseWorkSpace\\JingleMusic\\res\\drawable-xhdpi\\go_pressed.png"
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\go_pressed.png",
+        "source": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\res\\drawable-xhdpi\\go_pressed.png"
     },
     {
         "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\go_normal.png",
@@ -26,14 +14,6 @@
     {
         "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\music_list_popupwindow.9.png",
         "source": "E:\\EclipseWorkSpace\\JingleMusic\\res\\drawable-xhdpi\\music_list_popupwindow.9.png"
-    },
-    {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\download.png",
-        "source": "E:\\EclipseWorkSpace\\JingleMusic\\res\\drawable-xhdpi\\download.png"
-    },
-    {
-        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\music_list_popupwindow.9.png",
-        "source": "D:\\jingleMusic2\\JingleMusic\\res\\drawable-xhdpi\\music_list_popupwindow.9.png"
     },
     {
         "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\music_notifiaction.png",
@@ -56,6 +36,54 @@
         "source": "D:\\jingleMusic2\\JingleMusic\\res\\drawable-xhdpi\\popbg.9.png"
     },
     {
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\download_list.png",
+        "source": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\res\\drawable-xhdpi\\download_list.png"
+    },
+    {
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\go_normal.png",
+        "source": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\res\\drawable-xhdpi\\go_normal.png"
+    },
+    {
+        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\popbg.9.png",
+        "source": "E:\\EclipseWorkSpace\\JingleMusic\\res\\drawable-xhdpi\\popbg.9.png"
+    },
+    {
+        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_launcher.png",
+        "source": "D:\\jingleMusic2\\JingleMusic\\res\\drawable-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\go_pressed.png",
+        "source": "D:\\jingleMusic2\\JingleMusic\\res\\drawable-xhdpi\\go_pressed.png"
+    },
+    {
+        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\download_pressed.png",
+        "source": "E:\\EclipseWorkSpace\\JingleMusic\\res\\drawable-xhdpi\\download_pressed.png"
+    },
+    {
+        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\go_pressed.png",
+        "source": "E:\\EclipseWorkSpace\\JingleMusic\\res\\drawable-xhdpi\\go_pressed.png"
+    },
+    {
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\download.png",
+        "source": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\res\\drawable-xhdpi\\download.png"
+    },
+    {
+        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\download.png",
+        "source": "E:\\EclipseWorkSpace\\JingleMusic\\res\\drawable-xhdpi\\download.png"
+    },
+    {
+        "merged": "D:\\jingleMusic2\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\music_list_popupwindow.9.png",
+        "source": "D:\\jingleMusic2\\JingleMusic\\res\\drawable-xhdpi\\music_list_popupwindow.9.png"
+    },
+    {
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_launcher.png",
+        "source": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\res\\drawable-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\download_pressed.png",
+        "source": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\res\\drawable-xhdpi\\download_pressed.png"
+    },
+    {
         "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_launcher.png",
         "source": "E:\\EclipseWorkSpace\\JingleMusic\\res\\drawable-xhdpi\\ic_launcher.png"
     },
@@ -64,7 +92,15 @@
         "source": "D:\\jingleMusic2\\JingleMusic\\res\\drawable-xhdpi\\download.png"
     },
     {
-        "merged": "E:\\EclipseWorkSpace\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\popbg.9.png",
-        "source": "E:\\EclipseWorkSpace\\JingleMusic\\res\\drawable-xhdpi\\popbg.9.png"
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\music_list_popupwindow.9.png",
+        "source": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\res\\drawable-xhdpi\\music_list_popupwindow.9.png"
+    },
+    {
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\music_notifiaction.png",
+        "source": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\res\\drawable-xhdpi\\music_notifiaction.png"
+    },
+    {
+        "merged": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\popbg.9.png",
+        "source": "C:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\res\\drawable-xhdpi\\popbg.9.png"
     }
 ]

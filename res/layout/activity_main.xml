@@ -3,12 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.jinglemusic.MainActivity" >
+    tools:context="com.example.jinglemusic.ui.MainActivity" >
 
-    <com.example.jinglemusic.CustomTitle
+    <com.example.jinglemusic.ui.CustomTitle
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
-    </com.example.jinglemusic.CustomTitle>
+    </com.example.jinglemusic.ui.CustomTitle>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,7 +24,7 @@
             android:layout_margin="6dp"
             android:background="@drawable/edit_text"
             android:hint="@string/hint"
-            android:maxLines="2"
+            android:maxLines="1"
             android:textSize="20sp" />
 
         <Button

@@ -1,4 +1,7 @@
-#Sun Oct 08 16:54:07 CST 2017
-base.0=D\:\\jingleMusic2\\JingleMusic\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
+#Wed Nov 22 15:55:04 CST 2017
+base.0=C\:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_45c2cbd30746b205937930a39bd09c84a0c9e2df
+renamed.1=classes2.dex
 renamed.0=classes.dex
-file.0=D\:\\jingleMusic2\\JingleMusic\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex
+file.1=C\:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_f8674028d52086f2496ad9e7a78c61f8a8e01497\\classes.dex
+base.1=C\:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_f8674028d52086f2496ad9e7a78c61f8a8e01497
+file.0=C\:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_45c2cbd30746b205937930a39bd09c84a0c9e2df\\classes.dex
