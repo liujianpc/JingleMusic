@@ -1,4 +1,0 @@
-#Thu Nov 23 00:31:41 CST 2017
-base.0=C\:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
-renamed.0=classes.dex
-file.0=C\:\\Users\\XP-PC-XXX\\StudioProjects\\JingleMusic\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex

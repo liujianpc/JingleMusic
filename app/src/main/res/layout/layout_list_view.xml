@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/popbg"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_centerInParent="true"
+    android:paddingRight="12dp"
+    android:layout_width="150dp"
+    android:layout_height="wrap_content">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/mycolor"/>
+
+    <TextView
+        android:id="@+id/pop_baidu"
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="百度无损"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:background="@color/mycolor"/>
+
+    <TextView
+        android:id="@+id/pop_wangyi"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_height="43dp"
+        android:text="网易云"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:background="@color/mycolor"/>
+
+    <TextView
+        android:id="@+id/pop_baidump3"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_height="43dp"
+        android:text="百度音乐"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:background="@color/mycolor"/>
+
+    <TextView
+        android:id="@+id/pop_qq"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_height="43dp"
+        android:text="QQ音乐"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:background="@color/mycolor"/>
+
+    <TextView
+        android:id="@+id/pop_xiami"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_height="43dp"
+        android:text="虾米音乐"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:background="@color/mycolor"
+        />
+    <TextView
+        android:id="@+id/pop_kugou"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_height="43dp"
+        android:text="酷狗音乐"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:background="@color/mycolor"
+        />
+    <TextView
+        android:id="@+id/pop_kuwo"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_height="43dp"
+        android:text="酷我音乐"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:background="@color/mycolor"
+        />
+    <TextView
+        android:id="@+id/pop_migu"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_height="43dp"
+        android:text="咪咕音乐"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:background="@color/mycolor"
+        />
+    <TextView
+        android:id="@+id/pop_echo"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_height="43dp"
+        android:text="echo回声"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:background="@color/mycolor"
+        />
+    <TextView
+        android:id="@+id/pop_yiting"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_height="43dp"
+        android:text="一听音乐"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:background="@color/mycolor"
+        />
+
+</LinearLayout>
+</ScrollView>
