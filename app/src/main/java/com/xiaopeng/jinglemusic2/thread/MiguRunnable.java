@@ -5,7 +5,13 @@ import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
 import com.xiaopeng.jinglemusic2.Music;
+import com.xiaopeng.jinglemusic2.bean.MusicInfo;
 import com.xiaopeng.jinglemusic2.utils.NetworkUtil;
 
 import org.apache.http.HttpEntity;
@@ -14,12 +20,10 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by liujian on 2017/8/29.
@@ -56,26 +60,28 @@ public class MiguRunnable implements Runnable {
         songList = new ArrayList<>();
         Message msg = new Message();
         try {
+            Gson gson = new Gson();
             String requestUrl = "http://c.musicapp.migu.cn/MIGUM2.0/v1.0/content/search_suggest.do?&ua=Android_migu&version=5.0.7&text=" + songName + "&type=0";
-            JSONObject jsonObject = new JSONObject(NetworkUtil.getJsonByGet(requestUrl));
-            JSONArray jsonArray = jsonObject.getJSONArray("songSuggests");
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject jsonObjectInner = jsonArray.getJSONObject(i);
-                String songTitle = jsonObjectInner.getString("name") + "——" + jsonObjectInner.getString("singerName");
-                String songId = jsonObjectInner.getString("id");
+            JsonObject jsonObject = new JsonParser().parse(NetworkUtil.getJsonByGet(requestUrl)).getAsJsonObject();
+            JsonArray jsonArray = jsonObject.getAsJsonArray("songSuggests");
+            List<MusicInfo> musicInfos = gson.fromJson(jsonArray, new TypeToken<List<MusicInfo>>() {
+            }.getType());
+            for (MusicInfo info : musicInfos) {
+                String songTitle = info.getSongname() + "——" + info.getArtistname();
+                String songId = info.getSongid();
                 String requetUrlAnother = "http://music.migu.cn/webfront/player/findsong.do?itemid=" + songId + "&type=song";
-                JSONObject jsonObjectAnother = new JSONObject(NetworkUtil.getJsonByGet(requetUrlAnother));
-                JSONArray jsonArrayAnother = jsonObjectAnother.getJSONArray("msg");
-                JSONObject jsonMusic = jsonArrayAnother.getJSONObject(0);
-                String songPic = jsonObjectInner.getJSONArray("imgItems").getJSONObject(1).getString("img");
+                JsonObject jsonObjectAnother = new JsonParser().parse(NetworkUtil.getJsonByGet(requetUrlAnother)).getAsJsonObject();
+                JsonArray jsonArrayAnother = jsonObjectAnother.getAsJsonArray("msg");
+                JsonObject jsonMusic = jsonArray.get(0).getAsJsonObject();
+                String songPic = jsonMusic.getAsJsonPrimitive("poster").getAsString();
                 String songLink;
-                if (!TextUtils.isEmpty(jsonMusic.getString("hdmp3"))) {
-                    songLink = jsonMusic.getString("hdmp3");
+                if (!TextUtils.isEmpty(jsonMusic.getAsJsonPrimitive("hdmp3").getAsString())) {
+                    songLink = jsonMusic.getAsJsonPrimitive("hdmp3").getAsString();
                 } else {
-                    songLink = jsonMusic.getString("mp3");
+                    songLink = jsonMusic.getAsJsonPrimitive("mp3").getAsString();
                 }
-                String songLrc = null;
-                songList.add(new Music(songTitle, songLink, songPic, songLrc));
+                String songLrc = "";
+                songList.add(new Music(songTitle, info.getArtistname(), songLink, songPic, songLrc));
 
             }
 
@@ -83,10 +89,6 @@ public class MiguRunnable implements Runnable {
             msg.obj = songList;
             mHandler.sendMessage(msg);
 
-        } catch (JSONException e) {
-            Log.e("liujian", e.toString());
-            msg.what = 1;
-            mHandler.sendMessage(msg);
         } catch (IOException e) {
             Log.e("liujian", e.toString());
             msg.what = 1;

@@ -3,13 +3,13 @@ package com.xiaopeng.jinglemusic2.thread;
 import android.os.Handler;
 import android.os.Message;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.xiaopeng.jinglemusic2.Music;
 import com.xiaopeng.jinglemusic2.utils.JsonpUtil;
 import com.xiaopeng.jinglemusic2.utils.NetworkUtil;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -51,26 +51,29 @@ public class QQMusicRunnable implements Runnable {
         Message msg = new Message();
         try {
             String url = "http://s.music.qq.com/fcgi-bin/music_search_new_platform?t=0&n=5&aggr=1&cr=1&loginUin=0&format=json&inCharset=GB2312&outCharset=utf-8&notice=0&platform=jqminiframe.json&needNewCode=0&p=1&catZhida=0&remoteplace=sizer.newclient.next_song&w=" + URLEncoder.encode(songName, "UTF-8");
-            JSONObject jsonObject = new JSONObject(NetworkUtil.getJsonByGet(url));
-            JSONObject jsonSong = jsonObject.getJSONObject("data").getJSONObject("song");
-            JSONArray jsonArray = jsonSong.getJSONArray("list");
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject jsonInner = jsonArray.getJSONObject(i);
-                String songName = jsonInner.getString("fsong") + "——" + jsonInner.getString("fsinger") + "——" + jsonInner.getString("albumName_hilight");
-                String fString = jsonInner.getString("f");
-                if (fString.contains("@")) continue;
+            JsonObject jsonObject = new JsonParser().parse(NetworkUtil.getJsonByGet(url)).getAsJsonObject();
+            JsonObject jsonSong = jsonObject.getAsJsonObject("data").getAsJsonObject("song");
+            JsonArray jsonArray = jsonSong.getAsJsonArray("list");
+            for (JsonElement element : jsonArray) {
+                JsonObject jsonInner = element.getAsJsonObject();
+                String singerName = jsonInner.getAsJsonPrimitive("fsinger").getAsString();
+                String songName = jsonInner.getAsJsonPrimitive("fsong").getAsString() + "——" + singerName + "——" + jsonInner.getAsJsonPrimitive("albumName_hilight").getAsString();
+                String fString = jsonInner.getAsJsonPrimitive("f").getAsString();
+                if (fString.contains("@")) {
+                    continue;
+                }
                 String[] fStrings = fString.split("\\|");
                 String id = fStrings[20];
                 String json = JsonpUtil.parseJSONP(NetworkUtil.getJsonByGet("http://base.music.qq.com/fcgi-bin/fcg_musicexpress.fcg?json=3&loginUin=0&format=jsonp&inCharset=GB2312&outCharset=GB2312&notice=0&platform=yqq&needNewCode=0"));
-                JSONObject jsonObjectAnother = new JSONObject(json);
-                String key = jsonObjectAnother.getString("key");
+                JsonObject jsonObjectAnother = new JsonParser().parse(json).getAsJsonObject();
+                String key = jsonObjectAnother.getAsJsonPrimitive("key").getAsString();
                 String songLink = "http://cc.stream.qqmusic.qq.com/C100" + id + ".m4a?vkey=" + key + "&fromtag=0";
                 String imgId = fStrings[22];
                 String songPic = "http://imgcache.qq.com/music/photo/mid_album_90/" + imgId.charAt(imgId.length() - 2) + "/" + imgId.charAt(imgId.length() - 1) + "/" + imgId + ".jpg";
                 String LrcId = fStrings[0];
                 //String songLrc = "http://music.qq.com/miniportal/static/lyric/"+Integer.valueOf(LrcId)%100+"/"+LrcId+".xml";//xml歌词数据
                 String songLrc = null;
-                songList.add(new Music(songName, songLink, songPic, songLrc));
+                songList.add(new Music(songName, singerName, songLink, songPic, ""));
             }
 
             msg.what = 0;
@@ -78,7 +81,7 @@ public class QQMusicRunnable implements Runnable {
             mHandler.sendMessage(msg);
 
 
-        } catch (UnsupportedEncodingException | JSONException e) {
+        } catch (UnsupportedEncodingException e) {
             msg.what = 1;
             mHandler.sendMessage(msg);
         } catch (IOException e) {

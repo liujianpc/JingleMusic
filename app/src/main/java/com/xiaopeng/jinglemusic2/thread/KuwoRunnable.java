@@ -2,17 +2,19 @@ package com.xiaopeng.jinglemusic2.thread;
 
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
 import com.xiaopeng.jinglemusic2.Music;
+import com.xiaopeng.jinglemusic2.bean.MusicInfo;
 import com.xiaopeng.jinglemusic2.utils.NetworkUtil;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by liujian on 2017/8/28.
@@ -24,12 +26,16 @@ public class KuwoRunnable implements Runnable {
     private Handler mHandler;
     private String songName;
 
-    public KuwoRunnable(){super();}
-    public KuwoRunnable(Handler mHandler, String songName){
-        this.mHandler =mHandler;
+    public KuwoRunnable() {
+        super();
+    }
+
+    public KuwoRunnable(Handler mHandler, String songName) {
+        this.mHandler = mHandler;
         this.songName = songName;
 
     }
+
     /**
      * When an object implementing interface <code>Runnable</code> is used
      * to create a thread, starting the thread causes the object's
@@ -45,19 +51,22 @@ public class KuwoRunnable implements Runnable {
     public void run() {
         songList = new ArrayList<>();
         Message msg = new Message();
-        try{
-            String requestUrl = "http://search.kuwo.cn/r.s?all="+songName+"&ft=music&itemset=web_2013&client=kt&pn=0&rn=5&rformat=json&encoding=utf8";
-            JSONObject jsonObject = new JSONObject(NetworkUtil.getJsonByGet(requestUrl));
-            JSONArray jsonArray = jsonObject.getJSONArray("abslist");
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject jsonObjectInner = jsonArray.getJSONObject(i);
-                String songTitle = jsonObjectInner.getString("SONGNAME")+"——"+jsonObjectInner.getString("ARTIST");
-                String songId = jsonObjectInner.getString("MUSICRID");
-                String requetUrlAnother = "http://antiserver.kuwo.cn/anti.s?type=convert_url&rid="+songId+"&format=mp3&response=url";
+        try {
+            Gson gson = new Gson();
+            String requestUrl = "http://search.kuwo.cn/r.s?all=" + songName + "&ft=music&itemset=web_2013&client=kt&pn=0&rn=5&rformat=json&encoding=utf8";
+            JsonObject jsonObject = new JsonParser().parse(NetworkUtil.getJsonByGet(requestUrl)).getAsJsonObject();
+            JsonArray jsonArray = jsonObject.getAsJsonArray("abslist");
+            List<MusicInfo> MusicInfos = gson.fromJson(jsonArray, new TypeToken<List<MusicInfo>>() {
+            }.getType());
+            for (MusicInfo info : MusicInfos) {
+                String singerName = info.getArtistname();
+                String songTitle = info.getSongname() + "——" + singerName;
+                String songId = info.getSongid();
+                String requetUrlAnother = "http://antiserver.kuwo.cn/anti.s?type=convert_url&rid=" + songId + "&format=mp3&response=url";
                 String songLink = NetworkUtil.getJsonByGet(requetUrlAnother);
-                String songPic = null;
-                String songLrc = null;
-                songList.add(new Music(songTitle,songLink,songPic,songLrc));
+                String songPic = "";
+                String songLrc = "";
+                songList.add(new Music(songTitle, singerName, songLink, songPic, songLrc));
 
             }
 
@@ -65,10 +74,6 @@ public class KuwoRunnable implements Runnable {
             msg.obj = songList;
             mHandler.sendMessage(msg);
 
-        } catch (JSONException e) {
-            Log.e("liujian",e.toString());
-            msg.what = 1;
-            mHandler.sendMessage(msg);
         } catch (IOException e) {
             e.printStackTrace();
         }

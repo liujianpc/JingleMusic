@@ -84,7 +84,7 @@ public class WangyiMusicRunnable implements Runnable {
                 if (songLink.equals("null")) {
                     songLink = "fuck163.com";
                 }
-                songList.add(new Music(songName, songLink, songPic, songLrc));
+                songList.add(new Music(songName, "",songLink, songPic, songLrc));
 
             }
             msg.what = 0;

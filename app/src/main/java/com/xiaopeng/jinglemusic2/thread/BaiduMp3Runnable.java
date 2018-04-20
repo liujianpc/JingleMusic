@@ -4,8 +4,13 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
-
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
 import com.xiaopeng.jinglemusic2.Music;
+import com.xiaopeng.jinglemusic2.bean.MusicInfo;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -13,13 +18,11 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by liujian on 2017/8/12.
@@ -55,24 +58,20 @@ public class BaiduMp3Runnable implements Runnable {
         songList = new ArrayList<>();
         Message msg = new Message();
         try {
-            String requestUrl = "http://tingapi.ting.baidu.com/v1/restserver/ting?from=android&version=5.6.5.0&method=baidu.ting.search.catalogSug&format=json&query=" + URLEncoder.encode(songName, "UTF-8");
-            JSONObject jsonObject = new JSONObject(getJsonByGet(requestUrl));
-            JSONArray jsonArray = jsonObject.getJSONArray("song");
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject jsonInner = jsonArray.getJSONObject(i);
-                String songName = jsonInner.getString("songname");
-                String songId = jsonInner.getString("songid");
-                String artist = jsonInner.getString("artistname");
-                songName = songName + "——" + artist;
-                JSONObject jsonAnother = new JSONObject(getJsonByGet("http://music.baidu.com/data/music/links?songIds=" + songId));
-                JSONObject jsonData = jsonAnother.getJSONObject("data");
-                JSONArray jsonSongs = jsonData.getJSONArray("songList");
-                JSONObject jsonSongChild = jsonSongs.getJSONObject(0);
-                String songLink = jsonSongChild.getString("songLink");
-                String songPic = jsonSongChild.getString("songPicBig");
-                String songLrc = jsonSongChild.getString("lrcLink");
+            Gson gson = new Gson();
 
-                songList.add(new Music(songName, songLink, songPic, songLrc));
+            String requestUrl = "http://tingapi.ting.baidu.com/v1/restserver/ting?from=android&version=5.6.5.0&method=baidu.ting.search.catalogSug&format=json&query=" + URLEncoder.encode(songName, "UTF-8");
+            List<MusicInfo> baiduMpsInfos = gson.fromJson(getJsonByGet(requestUrl), new TypeToken<List<MusicInfo>>() {
+            }.getType());
+            for (MusicInfo info : baiduMpsInfos) {
+
+                String songId = info.getSongid();
+                JsonObject jsonObject = new JsonParser().parse(getJsonByGet("http://music.baidu.com/data/music/links?songIds=" + songId)).getAsJsonObject();
+
+                JsonArray jsonArray = jsonObject.getAsJsonObject("data").getAsJsonArray("songList");
+
+                Music music = gson.fromJson(jsonArray.get(0), Music.class);
+                songList.add(music);
 
             }
 
@@ -81,7 +80,7 @@ public class BaiduMp3Runnable implements Runnable {
             mHandler.sendMessage(msg);
 
 
-        } catch (UnsupportedEncodingException | JSONException e) {
+        } catch (UnsupportedEncodingException e) {
             Log.e("liujian", e.toString());
             msg.what = 1;
             mHandler.sendMessage(msg);
@@ -91,6 +90,7 @@ public class BaiduMp3Runnable implements Runnable {
     /**
      * 百度mp3好恶心，okhttp请求的response时403错误
      * 所以只能继续使用httpClient了
+     *
      * @param address 請求網址
      * @return json数据
      */

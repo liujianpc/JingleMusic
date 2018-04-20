@@ -4,32 +4,53 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
- * Created by liujian on 2017/8/1.
+ * @author liujian
+ * @date 2017/8/1
  */
 
 public class Music implements Parcelable {
+
     public String songTitle;
+
+    public String author;
+
     public String songLink;
+
     public String songPic;
 
-    protected Music(Parcel in) {
-        songTitle = in.readString();
-        songLink = in.readString();
-        songPic = in.readString();
-        songLrc = in.readString();
+    String songLrc;
+
+    public Music(String songTitle, String author, String songLink, String songPic, String songLrc) {
+        this.songTitle = songTitle;
+        this.author = author;
+        this.songLink = songLink;
+        this.songPic = songPic;
+        this.songLrc = songLrc;
     }
 
-    public static final Creator<Music> CREATOR = new Creator<Music>() {
-        @Override
-        public Music createFromParcel(Parcel in) {
-            return new Music(in);
-        }
+    public String getSongTitle() {
+        return songTitle;
+    }
 
-        @Override
-        public Music[] newArray(int size) {
-            return new Music[size];
-        }
-    };
+    public void setSongTitle(String songTitle) {
+        this.songTitle = songTitle;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getSongLink() {
+        return songLink;
+    }
+
+    public void setSongLink(String songLink) {
+        this.songLink = songLink;
+    }
 
     public String getSongPic() {
         return songPic;
@@ -47,30 +68,29 @@ public class Music implements Parcelable {
         this.songLrc = songLrc;
     }
 
-    String songLrc;
-
-    public Music(String songTitle, String songLink, String songPic, String songLrc) {
-        this.songTitle = songTitle;
-        this.songLink = songLink;
-        this.songPic = songPic;
-        this.songLrc = songLrc;
+    public static Creator<Music> getCREATOR() {
+        return CREATOR;
     }
 
-    public String getSongTitle() {
-        return songTitle;
+    protected Music(Parcel in) {
+        songTitle = in.readString();
+        author = in.readString();
+        songLink = in.readString();
+        songPic = in.readString();
+        songLrc = in.readString();
     }
 
-    public void setSongTitle(String songTitle) {
-        this.songTitle = songTitle;
-    }
+    public static final Creator<Music> CREATOR = new Creator<Music>() {
+        @Override
+        public Music createFromParcel(Parcel in) {
+            return new Music(in);
+        }
 
-    public String getSongLink() {
-        return songLink;
-    }
-
-    public void setSongLink(String songLink) {
-        this.songLink = songLink;
-    }
+        @Override
+        public Music[] newArray(int size) {
+            return new Music[size];
+        }
+    };
 
     @Override
     public int describeContents() {
@@ -80,6 +100,7 @@ public class Music implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(songTitle);
+        dest.writeString(author);
         dest.writeString(songLink);
         dest.writeString(songPic);
         dest.writeString(songLrc);

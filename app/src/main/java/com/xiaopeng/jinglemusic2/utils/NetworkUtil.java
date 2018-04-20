@@ -23,7 +23,7 @@ import okhttp3.Response;
 public class NetworkUtil {
     //public static final OkHttpClient okHttpClient = new OkHttpClient();
     private static final String TAG = "NetworkUtil";
-    public static final OkHttpClient okHttpClient = new OkHttpClient().newBuilder().addNetworkInterceptor(new StethoInterceptor()).build();
+    private static OkHttpClient okHttpClient = new OkHttpClient().newBuilder().addNetworkInterceptor(new StethoInterceptor()).build();
 
 
     public static String getJsonByGet(String url) throws IOException {

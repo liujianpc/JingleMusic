@@ -2,23 +2,25 @@ package com.xiaopeng.jinglemusic2.thread;
 
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
 import com.xiaopeng.jinglemusic2.Music;
 import com.xiaopeng.jinglemusic2.utils.NetworkUtil;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by liujian on 2017/8/29.
  */
 
 public class EchoRunnable implements Runnable {
+    private static final String TAG = "EchoRunnable";
     private ArrayList<Music> songList;
     private Handler mHandler;
     private String songName;
@@ -50,30 +52,18 @@ public class EchoRunnable implements Runnable {
         Message msg = new Message();
         try {
             String requestUrl = "http://www.app-echo.com/api/search/sound?keyword=" + songName + "&page=1&limit=10&src=0";
-            JSONObject jsonObject = new JSONObject(NetworkUtil.getJsonByGet(requestUrl));
-            JSONArray jsonArray = jsonObject.getJSONArray("data");
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject jsonObjectInner = jsonArray.getJSONObject(i);
-                String songTitle = jsonObjectInner.getString("name");
-                String songLink = jsonObjectInner.getString("source");
-                String songPic = jsonObjectInner.getString("pic_500");
-                String songLrc = null;
-                songList.add(new Music(songTitle, songLink, songPic, songLrc));
+            JsonObject jsonObject = new JsonParser().parse(NetworkUtil.getJsonByGet(requestUrl)).getAsJsonObject();
+            JsonArray jsonArray = jsonObject.getAsJsonArray("data");
+            songList = new Gson().fromJson(jsonArray, new TypeToken<List<Music>>() {
+            }.getType());
 
-            }
 
             msg.what = 0;
             msg.obj = songList;
             mHandler.sendMessage(msg);
 
-        } catch (JSONException e) {
-            Log.e("liujian", e.toString());
-            msg.what = 1;
-            mHandler.sendMessage(msg);
         } catch (IOException e) {
-            Log.e("liujian", e.toString());
-            msg.what = 1;
-            mHandler.sendMessage(msg);
+            e.printStackTrace();
         }
 
     }

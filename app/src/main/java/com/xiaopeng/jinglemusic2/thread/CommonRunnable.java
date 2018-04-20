@@ -4,6 +4,11 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
 import com.xiaopeng.jinglemusic2.Music;
 import com.xiaopeng.jinglemusic2.utils.NetworkUtil;
 
@@ -13,31 +18,34 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 /**
- * Created by liujian on 2017/8/13.
+ *
+ * @author liujian
+ * @date 2017/8/13
  */
 
-public class XiamiRunnable implements Runnable {
+public class CommonRunnable implements Runnable {
     private ArrayList<Music> songList;
     private Handler mHandler;
     private String songName;
+    private String type;
 
-    public XiamiRunnable() {
+    public CommonRunnable() {
         super();
     }
 
-    public XiamiRunnable(Handler mHandler, String songName) {
+    public CommonRunnable(Handler mHandler, String songName, String type) {
         this.mHandler = mHandler;
         this.songName = songName;
+        this.type = type;
     }
 
     /**
@@ -56,28 +64,24 @@ public class XiamiRunnable implements Runnable {
         Message msg = new Message();
         songList = new ArrayList<>();
         try {
-            String requestUrl = "http://spark.api.xiami.com/sdk?v=sdk&search_content_type=0&method=search.all&search_source_type=1&key=" + songName + "&limit=5&show_invalid_song=1&device_id=77849f09-2929-395d-aa86-07fb2d35fb5b&app_v=2020000&api_key=249970aacbae1d776368af6c4726232d&call_id=1511271452580&api_sig=d67d3880821b59a0b16e3649a8497829";
-            JSONObject jsonData = (new JSONObject(NetworkUtil.getJsonByGet(requestUrl))).getJSONObject("data");
-            JSONArray jsonArray = jsonData.getJSONArray("songs");
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject jsonSongElement = jsonArray.getJSONObject(i);
-                String musicId = jsonSongElement.getString("song_id");
+            String requestUrl = "http://music.sonimei.cn/";
+            HashMap<String, String> paramsMap = new HashMap<>(4);
+            paramsMap.put("input", songName);
+            paramsMap.put("filter", "name");
+            paramsMap.put("type", type);
+            paramsMap.put("page", "1");
 
-                JSONObject jsonObj = new JSONObject(getJsonByGet("http://www.xiami.com/song/playlist/id/" + musicId + "/object_name/default/object_id/0/cat/json"));
-                JSONObject jsonSong = jsonObj.getJSONObject("data").getJSONArray("trackList").getJSONObject(0);
-                String songName = jsonSong.getString("songName") + "——" + jsonSong.getString("singers");
-                String location = jsonSong.getString("location");
-                String songLink = deCaesar(location);
-                String songPic = jsonSong.getString("album_pic");
-                String songLrc = jsonSong.getString("lyric");
-                songList.add(new Music(songName, songLink, songPic, songLrc));
+            Gson gson = new Gson();
+            JsonObject jsonObject = new JsonParser().parse(NetworkUtil.getJsonByPost(requestUrl, paramsMap)).getAsJsonObject();
+            JsonArray jsonArray = jsonObject.getAsJsonArray("data");
+            songList = gson.fromJson(jsonArray, new TypeToken<List<Music>>() {
+            }.getType());
 
-            }
 
             msg.what = 0;
             msg.obj = songList;
             mHandler.sendMessage(msg);
-        } catch (IOException | JSONException e) {
+        } catch (IOException e) {
             msg.what = 1;
             mHandler.sendMessage(msg);
 

@@ -3,12 +3,13 @@ package com.xiaopeng.jinglemusic2.thread;
 import android.os.Handler;
 import android.os.Message;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.xiaopeng.jinglemusic2.Music;
 import com.xiaopeng.jinglemusic2.utils.NetworkUtil;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -37,7 +38,6 @@ public class BaiduFlacRunnable implements Runnable {
 
     @Override
     public void run() {
-        // TODO Auto-generated method stub
         songList = new ArrayList<>();
         Message message = new Message();
         String baseUrl = "http://music.baidu.com/search?key=";
@@ -54,26 +54,20 @@ public class BaiduFlacRunnable implements Runnable {
                 Element childElement2 = element.child(6).child(
                         0);
                 if (childElement2.attr("title").equals("无损资源")) {
-                    String song_title = childElement
-                            .attr("title");
+
                     String song_id = childElement.attr("href")
                             .split("/")[2];
                     String requestUrl = "http://music.baidu.com/data/music/songlink?songIds="
                             + song_id
                             + "&hq=&type=flac&rate=&pt=0&flag=-1&s2p=-1&prerate=-1&bwt=-1&dur=-1&bat=-1&bp=-1&pos=-1&auto=-1";
                     String json = NetworkUtil.getJsonByGet(requestUrl);
-                    JSONObject jsonObject = new JSONObject(json);
-                    JSONObject jsonObject2 = jsonObject
-                            .getJSONObject("data");
-                    JSONArray jsonArray = jsonObject2
-                            .getJSONArray("songList");
-                    JSONObject jsonObject3 = jsonArray
-                            .getJSONObject(0);
-                    String songLink = jsonObject3
-                            .getString("songLink");
-                    String songPic = jsonObject3.getString("songPicRadio");
-                    String songLrc = jsonObject3.getString("lrcLink");
-                    songList.add(new Music(song_title, songLink, songPic, songLrc));
+                    Gson gson = new Gson();
+
+                    JsonObject jsonObject = new JsonParser().parse(json).getAsJsonObject();
+                    JsonArray jsonArray = jsonObject.getAsJsonObject("data").getAsJsonArray("songList");
+
+                    Music music = gson.fromJson(jsonArray.get(0), Music.class);
+                    songList.add(music);
 
                 }
 
@@ -85,13 +79,8 @@ public class BaiduFlacRunnable implements Runnable {
             // TODO Auto-generated catch block
             message.what = 1;
             mHandler.sendMessage(message);
-        } catch (JSONException e) {
-            // TODO Auto-generated catch block
-            message.what = 1;
-            mHandler.sendMessage(message);
-        }
 
-    }
+        }
 
     /*public String getJson(String address) {
        String response = null;
@@ -110,4 +99,5 @@ public class BaiduFlacRunnable implements Runnable {
         }
         return response;
     }*/
+    }
 }

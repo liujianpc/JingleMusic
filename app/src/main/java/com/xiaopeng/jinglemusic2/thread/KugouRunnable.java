@@ -4,21 +4,28 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
 import com.xiaopeng.jinglemusic2.Music;
+import com.xiaopeng.jinglemusic2.bean.MusicInfo;
 import com.xiaopeng.jinglemusic2.utils.NetworkUtil;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+
 
 /**
- * Created by liujian on 2017/8/28.
+ * @author liujian
+ * @date 2017/8/28
  */
 
 public class KugouRunnable implements Runnable {
+
+    private static final String TAG = "KugouRunnable";
     private ArrayList<Music> songList;
     private Handler mHandler;
     private String songName;
@@ -49,19 +56,28 @@ public class KugouRunnable implements Runnable {
         songList = new ArrayList<>();
         Message msg = new Message();
         try {
+
+            Gson gson = new Gson();
             String requestUrl = "http://mobilecdn.kugou.com/api/v3/search/song?format=json&keyword=" + songName + "&page=1&pagesize=12";
-            JSONObject jsonObject = new JSONObject(NetworkUtil.getJsonByGet(requestUrl));
-            JSONArray jsonArray = jsonObject.getJSONObject("data").getJSONArray("info");
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject jsonObjectInner = jsonArray.getJSONObject(i);
-                String songTitle = jsonObjectInner.getString("filename");
-                String hash = jsonObjectInner.getString("hash");
+            JsonObject jsonObject = new JsonParser().parse(NetworkUtil.getJsonByGet(requestUrl)).getAsJsonObject();
+
+            JsonArray jsonArray = jsonObject.getAsJsonObject("data").getAsJsonArray("info");
+            List<MusicInfo> MusicInfos = gson.fromJson(jsonArray, new TypeToken<List<MusicInfo>>() {
+            }.getType());
+            for (MusicInfo info : MusicInfos
+                    ) {
+                String hash = info.getHash();
                 String requetUrlAnother = "http://m.kugou.com/app/i/getSongInfo.php?hash=" + hash + "&cmd=playInfo";
-                JSONObject jsonObjAnother = new JSONObject(NetworkUtil.getJsonByGet(requetUrlAnother));
-                String songLink = jsonObjAnother.getString("url");
-                String songPic = jsonObjAnother.getString("imgUrl");
-                String songLrc = null;//未能找到歌词api
-                songList.add(new Music(songTitle, songLink, songPic, songLrc));
+                JsonObject jsonObj = new JsonParser().parse(NetworkUtil.getJsonByGet(requetUrlAnother)).getAsJsonObject();
+                String songName = jsonObj.getAsJsonPrimitive("songName").getAsString();
+                String singerName = jsonObj.getAsJsonPrimitive("singerName").getAsString();
+                String fileName = jsonObj.getAsJsonPrimitive("fileName").getAsString();
+                String pic = jsonObj.getAsJsonPrimitive("imgUrl").getAsString().replace("{size}", "120");
+                String songLink = jsonObj.getAsJsonPrimitive("url").getAsString();
+
+
+                Music music = new Music(fileName, singerName, songLink, pic, "");
+                songList.add(music);
 
             }
 
@@ -69,12 +85,8 @@ public class KugouRunnable implements Runnable {
             msg.obj = songList;
             mHandler.sendMessage(msg);
 
-        } catch (JSONException e) {
-            Log.e("liujian", e.toString());
-            msg.what = 1;
-            mHandler.sendMessage(msg);
         } catch (IOException e) {
-            Log.e("liujian", e.toString());
+            Log.e(TAG, e.toString());
             msg.what = 1;
             mHandler.sendMessage(msg);
         }

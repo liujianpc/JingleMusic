@@ -25,5 +25,6 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         Stetho.initializeWithDefaults(this);
+        instance = this;
     }
 }

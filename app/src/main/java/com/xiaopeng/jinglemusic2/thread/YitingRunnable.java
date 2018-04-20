@@ -4,12 +4,12 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.xiaopeng.jinglemusic2.Music;
 import com.xiaopeng.jinglemusic2.utils.NetworkUtil;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,6 +19,7 @@ import java.util.ArrayList;
  */
 
 public class YitingRunnable implements Runnable {
+    private static final String TAG = "YitingRunnable";
     private ArrayList<Music> songList;
     private Handler mHandler;
     private String songName;
@@ -50,15 +51,16 @@ public class YitingRunnable implements Runnable {
         Message msg = new Message();
         try {
             String requestUrl = "http://so.1ting.com/song/json?q=" + songName + "&page=1";
-            JSONObject jsonObject = new JSONObject(NetworkUtil.getJsonByGet(requestUrl));
-            JSONArray jsonArray = jsonObject.getJSONArray("results");
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject jsonObjectInner = jsonArray.getJSONObject(i);
-                String songTitle = jsonObjectInner.getString("song_name") + "——" + jsonObjectInner.getString("singer_name");
-                String songPic = jsonObjectInner.getString("album_cover");
-                String songLink = "http://96.1ting.com" + jsonObjectInner.getString("song_filepath").replace("wma", "mp3");
-                String songLrc = null;
-                songList.add(new Music(songTitle, songLink, songPic, songLrc));
+            JsonObject jsonObject = new JsonParser().parse(NetworkUtil.getJsonByGet(requestUrl)).getAsJsonObject();
+            JsonArray jsonArray = jsonObject.getAsJsonArray("results");
+            for (JsonElement element : jsonArray) {
+                JsonObject jsonObjectInner = element.getAsJsonObject();
+                String singerName = jsonObjectInner.getAsJsonPrimitive("singer_name").getAsString();
+                String songTitle = jsonObjectInner.getAsJsonPrimitive("song_name").getAsString() + "——" + singerName;
+                String songPic = jsonObjectInner.getAsJsonPrimitive("album_cover").getAsString();
+                String songLink = "http://96.1ting.com" + jsonObjectInner.getAsJsonPrimitive("song_filepath").getAsString().replace("wma", "mp3");
+                String songLrc = "";
+                songList.add(new Music(songTitle, singerName, songLink, songPic, songLrc));
 
             }
 
@@ -66,12 +68,8 @@ public class YitingRunnable implements Runnable {
             msg.obj = songList;
             mHandler.sendMessage(msg);
 
-        } catch (JSONException e) {
-            Log.e("liujian", e.toString());
-            msg.what = 1;
-            mHandler.sendMessage(msg);
         } catch (IOException e) {
-            Log.e("liujian", e.toString());
+            Log.e(TAG, e.toString());
             msg.what = 1;
             mHandler.sendMessage(msg);
         }

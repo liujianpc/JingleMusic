@@ -33,13 +33,11 @@ import com.xiaopeng.jinglemusic2.R;
 import com.xiaopeng.jinglemusic2.control.MyAdapter;
 import com.xiaopeng.jinglemusic2.thread.BaiduFlacRunnable;
 import com.xiaopeng.jinglemusic2.thread.BaiduMp3Runnable;
+import com.xiaopeng.jinglemusic2.thread.CommonRunnable;
 import com.xiaopeng.jinglemusic2.thread.EchoRunnable;
 import com.xiaopeng.jinglemusic2.thread.KugouRunnable;
 import com.xiaopeng.jinglemusic2.thread.KuwoRunnable;
 import com.xiaopeng.jinglemusic2.thread.MiguRunnable;
-import com.xiaopeng.jinglemusic2.thread.QQMusicRunnable;
-import com.xiaopeng.jinglemusic2.thread.WangyiMusicRunnable;
-import com.xiaopeng.jinglemusic2.thread.XiamiRunnable;
 import com.xiaopeng.jinglemusic2.thread.YitingRunnable;
 import com.xiaopeng.jinglemusic2.utils.ToastUtil;
 
@@ -68,8 +66,6 @@ public class ScrollingActivity extends AppCompatActivity implements View.OnClick
     private int resourceFlag;
     PopupWindow popupWindow;
     ExecutorService executorService = Executors.newScheduledThreadPool(5);
-
-
 
 
     @SuppressLint("HandlerLeak")
@@ -302,16 +298,16 @@ public class ScrollingActivity extends AppCompatActivity implements View.OnClick
                             executorService.execute(new BaiduFlacRunnable(mHandler, songName));
                             break;
                         case 1:
-                            executorService.execute(new WangyiMusicRunnable(mHandler, songName));
+                            executorService.execute(new CommonRunnable(mHandler, songName, "netease"));
                             break;
                         case 2:
-                            executorService.execute(new QQMusicRunnable(mHandler, songName));
+                            executorService.execute(new CommonRunnable(mHandler, songName, "qq"));
                             break;
                         case 3:
                             executorService.execute(new BaiduMp3Runnable(mHandler, songName));
                             break;
                         case 4:
-                            executorService.execute(new XiamiRunnable(mHandler, songName));
+                            executorService.execute(new CommonRunnable(mHandler, songName, "xiami"));
                             break;
                         case 5:
                             executorService.execute(new KugouRunnable(mHandler, songName));
