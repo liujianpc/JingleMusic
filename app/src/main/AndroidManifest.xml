@@ -49,14 +49,6 @@
 
         </activity>
 
-        <service
-            android:name=".PlayMusicService"
-            android:permission="com.xiaopeng.jinglemusic2.PlayMusicService">
-            <intent-filter>
-                <action android:name="com.xiaopeng.jinglemusic2.PlayMusicService" />
-            </intent-filter>
-        </service>
-
     </application>
 
 </manifest>

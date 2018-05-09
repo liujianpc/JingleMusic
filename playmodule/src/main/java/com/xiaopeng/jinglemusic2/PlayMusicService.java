@@ -3,12 +3,9 @@ package com.xiaopeng.jinglemusic2;
 import android.app.Service;
 import android.content.Intent;
 import android.media.MediaPlayer;
-import android.os.Build;
 import android.os.IBinder;
 import android.os.Parcel;
 import android.os.RemoteException;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.util.Log;
 
 import java.io.IOException;
@@ -41,7 +38,6 @@ public class PlayMusicService extends Service {
 
     private ExecutorService executorService = Executors.newFixedThreadPool(1);
 
-    @Nullable
     @Override
     public IBinder onBind(Intent intent) {
         Log.d(TAG, "onBind");
@@ -61,7 +57,6 @@ public class PlayMusicService extends Service {
         super.onRebind(intent);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onCreate() {
         super.onCreate();
@@ -106,7 +101,6 @@ public class PlayMusicService extends Service {
             this.url = url;
         }
 
-        @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
         @Override
         public void run() {
             try {
