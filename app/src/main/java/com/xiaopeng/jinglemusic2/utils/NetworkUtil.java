@@ -65,7 +65,7 @@ public class NetworkUtil {
             requestBuilder.add(entry.getKey(), entry.getValue());
         }
         okhttp3.RequestBody requestBody = requestBuilder.build();
-        Request request = new Request.Builder().url(url).post(requestBody).cacheControl(new CacheControl.Builder().maxAge(3600, TimeUnit.SECONDS).build()).build();
+        Request request = new Request.Builder().header("X-Requested-With", "XMLHttpRequest").url(url).post(requestBody).cacheControl(new CacheControl.Builder().maxAge(3600, TimeUnit.SECONDS).build()).build();
         Response response = okHttpClient.newCall(request).execute();
         if (response.isSuccessful()) {
             result = response.body().string();

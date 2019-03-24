@@ -1,7 +1,5 @@
 package com.xiaopeng.jinglemusic2.thread;
 
-import android.os.Handler;
-import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -12,6 +10,7 @@ import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 import com.xiaopeng.jinglemusic2.Music;
 import com.xiaopeng.jinglemusic2.bean.MusicInfo;
+import com.xiaopeng.jinglemusic2.model.search.SearchModel;
 import com.xiaopeng.jinglemusic2.utils.NetworkUtil;
 
 import org.apache.http.HttpEntity;
@@ -21,47 +20,33 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by liujian on 2017/8/29.
+ *
+ * @author liujian
+ * @date 2017/8/29
  */
 
 public class MiguRunnable implements Runnable {
-    private ArrayList<Music> songList;
-    private Handler mHandler;
-    private String songName;
+    private String mSongName;
+    private SearchModel.LoadCallback mLoadCallback;
 
-    public MiguRunnable() {
-        super();
-    }
 
-    public MiguRunnable(Handler mHandler, String songName) {
-        this.mHandler = mHandler;
-        this.songName = songName;
+    public MiguRunnable(String songName, SearchModel.LoadCallback callback) {
+        this.mLoadCallback = callback;
+        this.mSongName = songName;
 
     }
 
-    /**
-     * When an object implementing interface <code>Runnable</code> is used
-     * to create a thread, starting the thread causes the object's
-     * <code>run</code> method to be called in that separately executing
-     * thread.
-     * <p>
-     * The general contract of the method <code>run</code> is that it may
-     * take any action whatsoever.
-     *
-     * @see Thread#run()
-     */
+
     @Override
     public void run() {
-        songList = new ArrayList<>();
-        Message msg = new Message();
+        ArrayList<Music> songList = new ArrayList<>();
         try {
             Gson gson = new Gson();
-            String requestUrl = "http://c.musicapp.migu.cn/MIGUM2.0/v1.0/content/search_suggest.do?&ua=Android_migu&version=5.0.7&text=" + songName + "&type=0";
+            String requestUrl = "http://c.musicapp.migu.cn/MIGUM2.0/v1.0/content/search_suggest.do?&ua=Android_migu&version=5.0.7&text=" + mSongName + "&type=0";
             JsonObject jsonObject = new JsonParser().parse(NetworkUtil.getJsonByGet(requestUrl)).getAsJsonObject();
             JsonArray jsonArray = jsonObject.getAsJsonArray("songSuggests");
             List<MusicInfo> musicInfos = gson.fromJson(jsonArray, new TypeToken<List<MusicInfo>>() {
@@ -85,14 +70,15 @@ public class MiguRunnable implements Runnable {
 
             }
 
-            msg.what = 0;
-            msg.obj = songList;
-            mHandler.sendMessage(msg);
+        if (mLoadCallback != null){
+                mLoadCallback.onSuccess(songList);
+        }
 
-        } catch (IOException e) {
-            Log.e("liujian", e.toString());
-            msg.what = 1;
-            mHandler.sendMessage(msg);
+        } catch (Exception e) {
+           if (mLoadCallback != null){
+               mLoadCallback.onFailed(e);
+           }
+           e.printStackTrace();
         }
 
     }

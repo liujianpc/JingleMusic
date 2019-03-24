@@ -1,7 +1,5 @@
 package com.xiaopeng.jinglemusic2.thread;
 
-import android.os.Handler;
-import android.os.Message;
 import android.util.Log;
 
 import com.google.gson.Gson;
@@ -10,6 +8,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 import com.xiaopeng.jinglemusic2.Music;
+import com.xiaopeng.jinglemusic2.model.search.SearchModel;
 import com.xiaopeng.jinglemusic2.utils.NetworkUtil;
 
 import org.apache.http.HttpEntity;
@@ -19,7 +18,6 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.ArrayList;
@@ -33,42 +31,27 @@ import java.util.List;
  */
 
 public class CommonRunnable implements Runnable {
-    private ArrayList<Music> songList;
-    private Handler mHandler;
-    private String songName;
-    private String type;
+    private String mSongName;
+    private String mType;
+    private SearchModel.LoadCallback mLoadCallback;
 
-    public CommonRunnable() {
-        super();
+
+    public CommonRunnable(String songName, String type, SearchModel.LoadCallback callback) {
+        this.mSongName = songName;
+        this.mType = type;
+        this.mLoadCallback = callback;
     }
 
-    public CommonRunnable(Handler mHandler, String songName, String type) {
-        this.mHandler = mHandler;
-        this.songName = songName;
-        this.type = type;
-    }
 
-    /**
-     * When an object implementing interface <code>Runnable</code> is used
-     * to create a thread, starting the thread causes the object's
-     * <code>run</code> method to be called in that separately executing
-     * thread.
-     * <p>
-     * The general contract of the method <code>run</code> is that it may
-     * take any action whatsoever.
-     *
-     * @see Thread#run()
-     */
     @Override
     public void run() {
-        Message msg = new Message();
-        songList = new ArrayList<>();
+        ArrayList<Music> songList;
         try {
             String requestUrl = "http://music.sonimei.cn/";
             HashMap<String, String> paramsMap = new HashMap<>(4);
-            paramsMap.put("input", songName);
+            paramsMap.put("input", mSongName);
             paramsMap.put("filter", "name");
-            paramsMap.put("type", type);
+            paramsMap.put("mType", mType);
             paramsMap.put("page", "1");
 
             Gson gson = new Gson();
@@ -78,13 +61,13 @@ public class CommonRunnable implements Runnable {
             }.getType());
 
 
-            msg.what = 0;
-            msg.obj = songList;
-            mHandler.sendMessage(msg);
-        } catch (IOException e) {
-            msg.what = 1;
-            mHandler.sendMessage(msg);
-
+          if (mLoadCallback != null){
+              mLoadCallback.onSuccess(songList);
+          }
+        } catch (Exception e) {
+            if (mLoadCallback != null){
+                mLoadCallback.onFailed(e);
+            }
         }
     }
 

@@ -1,9 +1,5 @@
 package com.xiaopeng.jinglemusic2.thread;
 
-import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
-
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -11,9 +7,9 @@ import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 import com.xiaopeng.jinglemusic2.Music;
 import com.xiaopeng.jinglemusic2.bean.MusicInfo;
+import com.xiaopeng.jinglemusic2.model.search.SearchModel;
 import com.xiaopeng.jinglemusic2.utils.NetworkUtil;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,35 +22,18 @@ import java.util.List;
 public class KugouRunnable implements Runnable {
 
     private static final String TAG = "KugouRunnable";
-    private ArrayList<Music> songList;
-    private Handler mHandler;
     private String songName;
+    private SearchModel.LoadCallback mLoadCallback;
 
-    public KugouRunnable() {
-        super();
-    }
-
-    public KugouRunnable(Handler mHandler, String songName) {
-        this.mHandler = mHandler;
+    public KugouRunnable(String songName, SearchModel.LoadCallback mLoadCallback) {
         this.songName = songName;
+        this.mLoadCallback = mLoadCallback;
 
     }
 
-    /**
-     * When an object implementing interface <code>Runnable</code> is used
-     * to create a thread, starting the thread causes the object's
-     * <code>run</code> method to be called in that separately executing
-     * thread.
-     * <p>
-     * The general contract of the method <code>run</code> is that it may
-     * take any action whatsoever.
-     *
-     * @see Thread#run()
-     */
     @Override
     public void run() {
-        songList = new ArrayList<>();
-        Message msg = new Message();
+        ArrayList<Music> songList = new ArrayList<>();
         try {
 
             Gson gson = new Gson();
@@ -81,14 +60,16 @@ public class KugouRunnable implements Runnable {
 
             }
 
-            msg.what = 0;
-            msg.obj = songList;
-            mHandler.sendMessage(msg);
+            if (mLoadCallback != null){
+                mLoadCallback.onSuccess(songList);
+            }
 
-        } catch (IOException e) {
-            Log.e(TAG, e.toString());
-            msg.what = 1;
-            mHandler.sendMessage(msg);
+        } catch (Exception e) {
+            if (mLoadCallback != null){
+                mLoadCallback.onFailed(e);
+            }
+           e.printStackTrace();
+
         }
 
     }

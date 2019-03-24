@@ -1,1 +1,1 @@
-include ':app', ':Downloader', ':playmodule'
+include ':app', ':Downloader'

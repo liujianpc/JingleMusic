@@ -12,19 +12,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class Music implements Parcelable {
 
-    @SerializedName(value = "title", alternate = {"songName","name"})
+    @SerializedName("title")
     public String songTitle;
 
-    @SerializedName(value = "author", alternate = {"artistName",})
+    @SerializedName("author")
     public String author;
 
-    @SerializedName(value = "url", alternate = {"songLink","source"})
+    @SerializedName("url")
     public String songLink;
 
-    @SerializedName(value = "pic", alternate = {"songPicRadio","pic_200"})
+    @SerializedName("pic")
     public String songPic;
 
-    @SerializedName(value = "lrc", alternate = {"lrcLink"})
+    @SerializedName("lrc")
     String songLrc;
 
     public Music(String songTitle, String author, String songLink, String songPic, String songLrc) {

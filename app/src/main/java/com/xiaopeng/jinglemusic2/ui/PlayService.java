@@ -7,13 +7,17 @@ import android.media.MediaPlayer;
 import android.support.annotation.Nullable;
 import android.widget.Toast;
 
+import com.xiaopeng.jinglemusic2.Music;
+import com.xiaopeng.jinglemusic2.view.play.IPlayView;
+
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by liujian on 2017/8/3.
  */
 
-public class PlayService extends IntentService {
+public class PlayService extends IntentService implements IPlayView {
     private String name = "PlayMusicService";
     private static String PLAY_MUSIC = "com.jingle.musicplayer";
     /**
@@ -87,5 +91,30 @@ public class PlayService extends IntentService {
             e.printStackTrace();
             Toast.makeText(this,"播放失败",Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    public void showPlay(int position) {
+
+    }
+
+    @Override
+    public void showStop() {
+
+    }
+
+    @Override
+    public void showSwitchMode(int mode) {
+
+    }
+
+    @Override
+    public void showMusicList(List<Music> musics) {
+
+    }
+
+    @Override
+    public void showDownload(List<Music> musics) {
+
     }
 }

@@ -1,17 +1,14 @@
 package com.xiaopeng.jinglemusic2.thread;
 
-import android.os.Handler;
-import android.os.Message;
-
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 import com.xiaopeng.jinglemusic2.Music;
+import com.xiaopeng.jinglemusic2.model.search.SearchModel;
 import com.xiaopeng.jinglemusic2.utils.NetworkUtil;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,48 +18,37 @@ import java.util.List;
 
 public class EchoRunnable implements Runnable {
     private static final String TAG = "EchoRunnable";
-    private ArrayList<Music> songList;
-    private Handler mHandler;
-    private String songName;
+    private String mSongName;
+    private SearchModel.LoadCallback mLoadCallback;
 
-    public EchoRunnable() {
-        super();
-    }
 
-    public EchoRunnable(Handler mHandler, String songName) {
-        this.mHandler = mHandler;
-        this.songName = songName;
+    public EchoRunnable(String songName, SearchModel.LoadCallback callback) {
+        this.mSongName = songName;
+        this.mLoadCallback = callback;
 
     }
 
-    /**
-     * When an object implementing interface <code>Runnable</code> is used
-     * to create a thread, starting the thread causes the object's
-     * <code>run</code> method to be called in that separately executing
-     * thread.
-     * <p>
-     * The general contract of the method <code>run</code> is that it may
-     * take any action whatsoever.
-     *
-     * @see Thread#run()
-     */
+
     @Override
     public void run() {
-        songList = new ArrayList<>();
-        Message msg = new Message();
+        ArrayList<Music> songList;
         try {
-            String requestUrl = "http://www.app-echo.com/api/search/sound?keyword=" + songName + "&page=1&limit=10&src=0";
+            String requestUrl = "http://www.app-echo.com/api/search/sound?keyword=" + mSongName + "&page=1&limit=10&src=0";
             JsonObject jsonObject = new JsonParser().parse(NetworkUtil.getJsonByGet(requestUrl)).getAsJsonObject();
             JsonArray jsonArray = jsonObject.getAsJsonArray("data");
             songList = new Gson().fromJson(jsonArray, new TypeToken<List<Music>>() {
             }.getType());
 
 
-            msg.what = 0;
-            msg.obj = songList;
-            mHandler.sendMessage(msg);
+          if (mLoadCallback != null){
+              mLoadCallback.onSuccess(songList);
+          }
 
-        } catch (IOException e) {
+        } catch (Exception e) {
+            if (mLoadCallback != null){
+
+                mLoadCallback.onFailed(e);
+            }
             e.printStackTrace();
         }
 

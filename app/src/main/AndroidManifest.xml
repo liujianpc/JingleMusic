@@ -23,7 +23,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.ScrollingActivity"
+            android:name=".view.search.SearchActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|keyboard"
             android:label="@string/app_name"
             android:launchMode="singleTask"
@@ -42,12 +42,21 @@
 
         </activity>
         <activity
-            android:name=".ui.PlayActivity"
+            android:name=".view.play.PlayActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|keyboard"
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
 
         </activity>
+
+        <service
+            android:name=".PlayMusicService"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="com.xiaopeng.jinglemusic2.PlayMusicService" />
+            </intent-filter>
+
+        </service>
 
     </application>
 

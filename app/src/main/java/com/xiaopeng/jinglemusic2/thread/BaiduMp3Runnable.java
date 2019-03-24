@@ -1,7 +1,5 @@
 package com.xiaopeng.jinglemusic2.thread;
 
-import android.os.Handler;
-import android.os.Message;
 import android.util.Log;
 
 import com.google.gson.Gson;
@@ -11,6 +9,7 @@ import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 import com.xiaopeng.jinglemusic2.Music;
 import com.xiaopeng.jinglemusic2.bean.MusicInfo;
+import com.xiaopeng.jinglemusic2.model.search.SearchModel;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -19,48 +18,34 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 
-import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by liujian on 2017/8/12.
+ *
+ * @author liujian
+ * @date 2017/8/12
  */
 
 public class BaiduMp3Runnable implements Runnable {
-    private ArrayList<Music> songList;
-    private Handler mHandler;
-    private String songName;
+    private String mSongName;
+    private SearchModel.LoadCallback mLoadCallback;
 
-    public BaiduMp3Runnable() {
-        super();
+    public BaiduMp3Runnable(String songName, SearchModel.LoadCallback mLoadCallback) {
+        this.mSongName = songName;
+        this.mLoadCallback = mLoadCallback;
+
     }
 
-    public BaiduMp3Runnable(Handler mHandler, String songName) {
-        this.mHandler = mHandler;
-        this.songName = songName;
-    }
 
-    /**
-     * When an object implementing interface <code>Runnable</code> is used
-     * to create a thread, starting the thread causes the object's
-     * <code>run</code> method to be called in that separately executing
-     * thread.
-     * <p>
-     * The general contract of the method <code>run</code> is that it may
-     * take any action whatsoever.
-     *
-     * @see Thread#run()
-     */
     @Override
     public void run() {
-        songList = new ArrayList<>();
-        Message msg = new Message();
+        ArrayList<Music> songList = new ArrayList<>();
         try {
             Gson gson = new Gson();
 
-            String requestUrl = "http://tingapi.ting.baidu.com/v1/restserver/ting?from=android&version=5.6.5.0&method=baidu.ting.search.catalogSug&format=json&query=" + URLEncoder.encode(songName, "UTF-8");
+            String requestUrl = "http://tingapi.ting.baidu.com/v1/restserver/ting?from=android&version=5.6.5.0&method=baidu.ting.search.catalogSug&format=json&query=" + URLEncoder.encode(mSongName, "UTF-8");
             List<MusicInfo> baiduMpsInfos = gson.fromJson(getJsonByGet(requestUrl), new TypeToken<List<MusicInfo>>() {
             }.getType());
             for (MusicInfo info : baiduMpsInfos) {
@@ -75,15 +60,16 @@ public class BaiduMp3Runnable implements Runnable {
 
             }
 
-            msg.what = 0;
-            msg.obj = songList;
-            mHandler.sendMessage(msg);
+            if (mLoadCallback != null){
+                mLoadCallback.onSuccess(songList);
+            }
 
 
-        } catch (UnsupportedEncodingException e) {
-            Log.e("liujian", e.toString());
-            msg.what = 1;
-            mHandler.sendMessage(msg);
+
+        } catch (Exception e) {
+            if (mLoadCallback != null){
+                mLoadCallback.onFailed(e);
+            }
         }
     }
 

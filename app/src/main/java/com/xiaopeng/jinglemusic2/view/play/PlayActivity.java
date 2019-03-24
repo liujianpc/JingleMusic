@@ -1,5 +1,6 @@
-package com.xiaopeng.jinglemusic2.ui;
+package com.xiaopeng.jinglemusic2.view.play;
 
+import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
@@ -15,6 +16,7 @@ import android.os.Environment;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +33,7 @@ import android.widget.PopupWindow;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.xiaopeng.jinglemusic2.Config;
 import com.xiaopeng.jinglemusic2.IPlayServiceInterface;
 import com.xiaopeng.jinglemusic2.Music;
@@ -38,6 +41,7 @@ import com.xiaopeng.jinglemusic2.R;
 import com.xiaopeng.jinglemusic2.control.DownLoadMusicAdapter;
 import com.xiaopeng.jinglemusic2.control.MusicListAdapter;
 import com.xiaopeng.jinglemusic2.model.DownLoadMusic;
+import com.xiaopeng.jinglemusic2.ui.BaseActivity;
 import com.xiaopeng.jinglemusic2.utils.FastBlurUtil;
 import com.xiaopeng.jinglemusic2.utils.ToastUtil;
 
@@ -50,18 +54,19 @@ import java.util.concurrent.Executors;
 
 import cn.aigestudio.downloader.bizs.DLManager;
 import cn.aigestudio.downloader.interfaces.SimpleDListener;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * @author XP-PC-XXX
  */
-public class PlayActivity extends BaseActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
+public class PlayActivity extends BaseActivity implements View.OnClickListener, AdapterView.OnItemClickListener,IPlayView {
 
     private static final String TAG = "PlayActivity";
     private IPlayServiceInterface mPlayService;
     private ImageButton playModel, lastSong, playAndPause, nextSong, songList, download, downloadList;
     private static List<Music> musicList;
     private SeekBar seekBar;
-    private ImageView musicImage;
+    private CircleImageView musicImage;
     private Animation animation;
     private TextView musicTime;
     private Intent bindIntent;
@@ -220,7 +225,7 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
     /**
      * 第一次播放
      */
-    private void firstPlay( int position) {
+    private void firstPlay(int position) {
         if (mPlayService != null) {
             try {
                 Log.d(TAG, "enter firtst play");
@@ -266,7 +271,7 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
         download = (ImageButton) findViewById(R.id.download);
         downloadList = (ImageButton) findViewById(R.id.download_list);
         seekBar = (SeekBar) findViewById(R.id.music_seekbar);
-        musicImage = (ImageView) findViewById(R.id.music_image);
+        musicImage = (CircleImageView) findViewById(R.id.music_image);
         musicName = (TextView) findViewById(R.id.music_name);
         musicTime = (TextView) findViewById(R.id.music_time);
         playedMusicTime = (TextView) findViewById(R.id.music_played_time);
@@ -327,7 +332,17 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
     /**
      * 初始化播放器界面
      */
+    @SuppressLint("ResourceType")
     private void initPlayerView(int position) {
+
+        if (!TextUtils.isEmpty(musicList.get(position).getSongPic())) {
+
+            Glide.with(this).load(getResources().getDrawable(R.id.music_image)).centerCrop().into(musicImage);
+
+        } else {
+            Glide.with(this).load(musicList.get(position).getSongPic()).centerCrop().into(musicImage);
+
+        }
         musicName.setText(musicList.get(position).getSongTitle());
         //渲染高斯模糊背景
         isPlaying = true;
@@ -614,6 +629,31 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
 
         initPlayerView(positionofMethod);
         playWithPosition(positionofMethod);
+    }
+
+    @Override
+    public void showPlay(int position) {
+
+    }
+
+    @Override
+    public void showStop() {
+
+    }
+
+    @Override
+    public void showSwitchMode(int mode) {
+
+    }
+
+    @Override
+    public void showMusicList(List<Music> musics) {
+
+    }
+
+    @Override
+    public void showDownload(List<Music> musics) {
+
     }
 
 

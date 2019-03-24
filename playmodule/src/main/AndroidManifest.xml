@@ -16,14 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <service
-            android:name=".PlayMusicService"
-            android:process=":remote">
-            <intent-filter>
-                <action android:name="com.xiaopeng.jinglemusic2.PlayMusicService" />
-            </intent-filter>
 
-        </service>
     </application>
 
 </manifest>

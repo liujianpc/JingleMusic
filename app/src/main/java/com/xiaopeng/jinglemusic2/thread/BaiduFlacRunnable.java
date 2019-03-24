@@ -1,13 +1,11 @@
 package com.xiaopeng.jinglemusic2.thread;
 
-import android.os.Handler;
-import android.os.Message;
-
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.xiaopeng.jinglemusic2.Music;
+import com.xiaopeng.jinglemusic2.model.search.SearchModel;
 import com.xiaopeng.jinglemusic2.utils.NetworkUtil;
 
 import org.jsoup.Jsoup;
@@ -15,37 +13,33 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- * Created by liujian on 2017/8/11.
+ *
+ * @author liujian
+ * @date 2017/8/11
  */
 
 public class BaiduFlacRunnable implements Runnable {
-    private ArrayList<Music> songList;
-    private Handler mHandler;
-    private String songName;
+    private String mSongName;
+    private SearchModel.LoadCallback mLoadCallback;
 
-    public BaiduFlacRunnable() {
-        super();
-    }
+    public BaiduFlacRunnable(String songName, SearchModel.LoadCallback callback) {
 
-    public BaiduFlacRunnable(Handler mHandler, String songName) {
-        this.mHandler = mHandler;
-        this.songName = songName;
+        this.mSongName = songName;
+        this.mLoadCallback = callback;
     }
 
     @Override
     public void run() {
-        songList = new ArrayList<>();
-        Message message = new Message();
+        ArrayList<Music> songList = new ArrayList<>();
         String baseUrl = "http://music.baidu.com/search?key=";
 
         Document document = null;
         try {
             document = Jsoup.connect(
-                    baseUrl + songName).get();
+                    baseUrl + mSongName).get();
             Elements div_song = document
                     .select("div.song-item.clearfix");
             for (Element element : div_song) {
@@ -64,7 +58,7 @@ public class BaiduFlacRunnable implements Runnable {
                     Gson gson = new Gson();
 
                     JsonObject jsonObject = new JsonParser().parse(json).getAsJsonObject();
-                    JsonArray jsonArray = jsonObject.getAsJsonObject("data").getAsJsonArray("songList");
+                    JsonArray jsonArray = jsonObject.getAsJsonObject("data").getAsJsonArray("mSongList");
 
                     Music music = gson.fromJson(jsonArray.get(0), Music.class);
                     songList.add(music);
@@ -72,32 +66,15 @@ public class BaiduFlacRunnable implements Runnable {
                 }
 
             }
-            message.what = 0;
-            message.obj = songList;
-            mHandler.sendMessage(message);
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            message.what = 1;
-            mHandler.sendMessage(message);
-
-        }
-
-    /*public String getJson(String address) {
-       String response = null;
-        try {
-            HttpClient client = new DefaultHttpClient();
-            HttpGet httpGet = new HttpGet(address);
-            HttpResponse httpResponse = client.execute(httpGet);
-            if (httpResponse.getStatusLine().getStatusCode() == 200) {
-                HttpEntity entity = httpResponse.getEntity();
-                response = EntityUtils.toString(entity, "utf-8");
+           if (mLoadCallback != null){
+                mLoadCallback.onSuccess(songList);
+           }
+        } catch (Exception e) {
+            if (mLoadCallback != null){
+                mLoadCallback.onFailed(e);
             }
 
-        } catch (Exception e) {
-            // TODO: handle exception
-            Log.e("exception", "json解析错误");
         }
-        return response;
-    }*/
+
     }
 }

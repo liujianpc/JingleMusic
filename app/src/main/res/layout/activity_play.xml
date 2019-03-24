@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.xiaopeng.jinglemusic2.ui.PlayActivity">
+    tools:context="com.xiaopeng.jinglemusic2.view.play.PlayActivity">
 
     <ImageView
         android:id="@+id/back_ground"
@@ -71,7 +72,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/seekbar_wrapper"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/download_btn" />
     <!-- <com.example.jinglemusic.ui.LyricViewView
           android:id="@+id/lrc_View"
@@ -120,12 +121,14 @@
         android:layout_centerInParent="true"
         android:layout_marginBottom="50dp">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/music_image"
             android:layout_width="260dp"
             android:layout_height="260dp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/music_image" />
+            android:src="@drawable/music_image"
+            app:civ_border_color="#FFB4B5BA"
+            app:civ_border_width="2dp" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -142,7 +145,7 @@
             android:ellipsize="end"
             android:singleLine="true"
             android:text=""
-            android:textColor="#84D945"
+            android:textColor="#FF84D945"
             android:textSize="16sp" />
     </RelativeLayout>
 
