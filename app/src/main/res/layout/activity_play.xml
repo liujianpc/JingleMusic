@@ -117,7 +117,7 @@
         android:id="@+id/music_image_wrapper"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/seekbar_wrapper"
+        android:layout_above="@id/download"
         android:layout_centerInParent="true"
         android:layout_marginBottom="50dp">
 
@@ -126,7 +126,7 @@
             android:layout_width="260dp"
             android:layout_height="260dp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/music_image"
+            android:src="@drawable/music_play_cover"
             app:civ_border_color="#FFB4B5BA"
             app:civ_border_width="2dp" />
     </RelativeLayout>

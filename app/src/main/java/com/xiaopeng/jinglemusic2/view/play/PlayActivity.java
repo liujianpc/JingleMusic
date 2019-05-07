@@ -337,7 +337,7 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
 
         if (!TextUtils.isEmpty(musicList.get(position).getSongPic())) {
 
-            Glide.with(this).load(getResources().getDrawable(R.id.music_image)).centerCrop().into(musicImage);
+            Glide.with(this).load(R.drawable.music_play_cover).centerCrop().into(musicImage);
 
         } else {
             Glide.with(this).load(musicList.get(position).getSongPic()).centerCrop().into(musicImage);
