@@ -57,11 +57,11 @@ public class SearchPresenter implements ISearchPresenter, SearchModel.LoadCallba
     }
 
     @Override
-    public void onFailed(Exception exception) {
+    public void onFailed(final Exception exception) {
         mHandler.post(new Runnable() {
             @Override
             public void run() {
-                mSearchView.showToast();
+                mSearchView.showToast(exception);
             }
         });
 

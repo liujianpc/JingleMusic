@@ -65,13 +65,20 @@ public class NetworkUtil {
             requestBuilder.add(entry.getKey(), entry.getValue());
         }
         okhttp3.RequestBody requestBody = requestBuilder.build();
-        Request request = new Request.Builder().header("X-Requested-With", "XMLHttpRequest").url(url).post(requestBody).cacheControl(new CacheControl.Builder().maxAge(3600, TimeUnit.SECONDS).build()).build();
+        Request request = new Request.Builder()
+                .header("X-Requested-With", "XMLHttpRequest")
+                // .header("Content-Type", "application/x-www-form-urlencoded")
+                //  .header("Content-Length", "51")
+                // .header("Host", "music.sonimei.cn")
+                // .header("Connection", "Keep-Alive")
+                //  .header("Accept-Encoding", "gzip")
+                //  .header("User-Agent", "User-Agent:Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.104 Safari/537.36 Core/1.53.3103.400 QQBrowser/9.6.11372.400")
+                .url(url).post(requestBody).cacheControl(new CacheControl.Builder().maxAge(3600, TimeUnit.SECONDS).build()).build();
         Response response = okHttpClient.newCall(request).execute();
         if (response.isSuccessful()) {
             result = response.body().string();
         }
         return result;
-
     }
 
     public static String getJsonByGetWithHeader(String url) throws IOException {

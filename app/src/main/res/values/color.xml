@@ -8,9 +8,9 @@
     <!--<color name="mycolor">#C7EA2D</color>-->
     <!-- 白色 -->
     <color name="mycolor2">#4CE084</color>
-<!--
-    <color name="mycolor2">#CEE56C</color>
--->
+    <!--
+        <color name="mycolor2">#CEE56C</color>
+    -->
     <!-- 白色 -->
     <color name="white">#FFFFFF</color>
     <!-- 白色 -->
@@ -449,5 +449,16 @@
 
     <color name="black">#000000</color>
     <!-- 黑色 -->
+    <color name="qq">#31C27C</color>
+    <color name="baidu_flac">#FF8C8C</color>
+    <color name="netease">#EA2000</color>
+    <color name="baidu">#00A8FF</color>
+    <color name="xiami">#FF900D</color>
+    <color name="kugou">#2D94FD</color>
+    <color name="kuwo">#FCEF91</color>
+    <color name="migu">#DD1575</color>
+    <color name="echo">#88E949</color>
+    <color name="yiting">#A8E8FF</color>
+
 
 </resources>

@@ -7,12 +7,14 @@ import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,9 +27,10 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.xiaopeng.jinglemusic2.Config;
 import com.xiaopeng.jinglemusic2.Music;
 import com.xiaopeng.jinglemusic2.R;
-import com.xiaopeng.jinglemusic2.control.MyAdapter;
+import com.xiaopeng.jinglemusic2.control.MusicAdapter;
 import com.xiaopeng.jinglemusic2.presenter.search.ISearchPresenter;
 import com.xiaopeng.jinglemusic2.presenter.search.SearchPresenter;
 import com.xiaopeng.jinglemusic2.ui.AboutActivity;
@@ -51,7 +54,6 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
     private RecyclerView mRecyclerView;
     private EditText mEditText;
     private ProgressDialog mProgressDialog;
-    private MyAdapter mAdapter = null;
     private FloatingActionButton mSearchButton;
     private Button mLeftButton, mRightButton;
     private int mResourceFlag;
@@ -61,7 +63,8 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
 
     private static final int FAILED_FLAG = 1;
 
-    private Handler mHandler;
+    private AppBarLayout mAppBarLayout;
+    private CollapsingToolbarLayout mToolbarlayout;
 
 
     @Override
@@ -91,6 +94,17 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         mLeftButton = (Button) findViewById(R.id.title_left);
         mRightButton = (Button) findViewById(R.id.title_right);
         mEditText = (EditText) findViewById(R.id.input);
+        mEditText.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode == KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_UP) {
+                    searchMusic();
+                }
+                return false;
+            }
+        });
+        mAppBarLayout = (AppBarLayout) findViewById(R.id.app_bar);
+        mToolbarlayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
         if (savedInstanceState != null) {
             mEditText.setText(savedInstanceState.getString("musicName"));
         }
@@ -145,47 +159,56 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
                 initPopupWindow();
                 break;
             case R.id.pop_baidu:
-                onSourceSelected(0, "百度无损");
+                onSourceSelected(Config.BAIDU_FLAC_FLAG, "百度无损");
                 break;
             case R.id.pop_wangyi:
-                onSourceSelected(1, "网易云");
+                onSourceSelected(Config.NETEASE_FLAG, "网易云");
                 break;
             case R.id.pop_qq:
-                onSourceSelected(2, "QQ音乐");
+                onSourceSelected(Config.QQ_FLAG, "QQ音乐");
                 break;
             case R.id.pop_baidump3:
-                onSourceSelected(3, "百度音乐");
+                onSourceSelected(Config.BAIDU_MP3_FLAG, "百度音乐");
                 break;
             case R.id.pop_xiami:
-                onSourceSelected(4, "虾米音乐");
+                onSourceSelected(Config.XIAMI_FLAG, "虾米音乐");
                 break;
             case R.id.pop_kugou:
-                onSourceSelected(5, "酷狗音乐");
+                onSourceSelected(Config.KUGOU_FLAG, "酷狗音乐");
                 break;
             case R.id.pop_kuwo:
-                onSourceSelected(6, "酷我音乐");
+                onSourceSelected(Config.KUWO_FLAG, "酷我音乐");
                 break;
             case R.id.pop_migu:
-                onSourceSelected(7, "咪咕音乐");
+                onSourceSelected(Config.MIGU_FLAG, "咪咕音乐");
                 break;
             case R.id.pop_echo:
-                onSourceSelected(8, "echo回声");
+                onSourceSelected(Config.ECHO_FLAG, "echo回声");
                 break;
             case R.id.pop_yiting:
-                onSourceSelected(9, "一听音乐");
+                onSourceSelected(Config.YITING_FLAG, "一听音乐");
                 break;
             case R.id.search:
-                String songName = mEditText.getText().toString().trim();
+                searchMusic();
 
-                if (!TextUtils.isEmpty(songName.trim())) {
-                    showProgress();
-                    mSearchPresenter.loadMusicList(songName, mResourceFlag);
-
-                } else {
-                    ToastUtil.showToast(SearchActivity.this, "请输入歌曲名称等关键字");
-                }
+                break;
             default:
                 break;
+        }
+    }
+
+    /**
+     * 搜索音乐
+     */
+    private void searchMusic() {
+        String songName = mEditText.getText().toString().trim();
+
+        if (!TextUtils.isEmpty(songName.trim())) {
+            showProgress();
+            mSearchPresenter.loadMusicList(songName, mResourceFlag);
+
+        } else {
+            ToastUtil.showToast(SearchActivity.this, getString(R.string.hint));
         }
     }
 
@@ -197,6 +220,59 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
      */
     private void onSourceSelected(int flag, String itemMSg) {
         mResourceFlag = flag;
+        int colorId;
+        String source = null;
+        switch (flag) {
+            case Config.BAIDU_FLAC_FLAG:
+                colorId = R.color.baidu_flac;
+                source = "百度无损";
+                break;
+            case Config.NETEASE_FLAG:
+                colorId = R.color.netease;
+                source = "网易云";
+                break;
+            case Config.BAIDU_MP3_FLAG:
+                colorId = R.color.baidu;
+                source = "百度";
+                break;
+            case Config.QQ_FLAG:
+                colorId = R.color.qq;
+                source = "QQ";
+                break;
+            case Config.XIAMI_FLAG:
+                colorId = R.color.xiami;
+                source = "虾米";
+                break;
+            case Config.KUGOU_FLAG:
+                colorId = R.color.kugou;
+                source = "酷狗";
+                break;
+            case Config.KUWO_FLAG:
+                colorId = R.color.kuwo;
+                source = "酷我";
+                break;
+            case Config.MIGU_FLAG:
+                colorId = R.color.migu;
+                source = "咪咕";
+                break;
+            case Config.ECHO_FLAG:
+                colorId = R.color.echo;
+                source = "回声";
+                break;
+            case Config.YITING_FLAG:
+                colorId = R.color.yiting;
+                source = "一听";
+                break;
+
+            default:
+                colorId = R.color.mycolor2;
+                source = "换源";
+
+        }
+        // mAppBarLayout.setBackgroundColor(getColor(colorId));
+        //mCustomTitle.setBackgroundColor(getColor(colorId));
+        mRightButton.setText(source);
+        mToolbarlayout.setBackgroundColor(getColor(colorId));
         mPopupWindow.dismiss();
         ToastUtil.showToast(this, itemMSg);
     }
@@ -234,10 +310,10 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     @Override
-    public void showToast() {
+    public void showToast(Exception e) {
 
         mProgressDialog.dismiss();
-        Toast.makeText(SearchActivity.this, "解析Json错误",
+        Toast.makeText(SearchActivity.this, e.getMessage(),
                 Toast.LENGTH_SHORT).show();
 
     }
@@ -246,11 +322,11 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
     public void showResult(final List<Music> musics) {
 
         mProgressDialog.dismiss();
-        mAdapter = new MyAdapter(musics, getApplicationContext());
+        MusicAdapter adapter = new MusicAdapter(musics, getApplicationContext());
         LinearLayoutManager manager = new LinearLayoutManager(getApplicationContext());
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(manager);
-        mAdapter.setOnItemClickListener(new MyAdapter.OnItemClickListener() {
+        adapter.setOnItemClickListener(new MusicAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view) {
                 // TODO Auto-generated method stub
@@ -281,7 +357,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
 
             }
         });
-        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setAdapter(adapter);
 
     }
 
@@ -289,6 +365,5 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
     public void showProgress() {
         mProgressDialog.show();
     }
-
 
 }

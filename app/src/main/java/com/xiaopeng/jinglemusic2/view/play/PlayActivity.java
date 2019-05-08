@@ -15,7 +15,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.IBinder;
 import android.os.RemoteException;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -59,44 +58,38 @@ import de.hdodenhof.circleimageview.CircleImageView;
 /**
  * @author XP-PC-XXX
  */
-public class PlayActivity extends BaseActivity implements View.OnClickListener, AdapterView.OnItemClickListener,IPlayView {
+public class PlayActivity extends BaseActivity implements View.OnClickListener, AdapterView.OnItemClickListener, IPlayView {
 
     private static final String TAG = "PlayActivity";
     private IPlayServiceInterface mPlayService;
     private ImageButton playModel, lastSong, playAndPause, nextSong, songList, download, downloadList;
     private static List<Music> musicList;
-    private SeekBar seekBar;
-    private CircleImageView musicImage;
-    private Animation animation;
-    private TextView musicTime;
-    private Intent bindIntent;
-    private int position;
-    private int clickCount = 0;
-    private int playModeFlag = 2;
-    private boolean isPlaying = true;
-    private boolean isComplete;
-    private IntentFilter intentFilter;
+    private SeekBar mSeekBar;
+    private CircleImageView mMusicImage;
+    private Animation mAnimation;
+    private TextView mMusicTime;
+    private Intent mBindIntent;
+    private int mPosition;
+    private int mClickCount = 0;
+    private int mPlayModeFlag = 2;
+    private boolean mIsPlaying = true;
+    private boolean mIsComplete;
     private PlayMusicReceiver receiver;
     private int time;
-    private int seekBarposition;
-    private ListView musicListView, downLoadListPopup;
-    private TextView musicName, playedMusicTime;
-    private PopupWindow popupWindow;
-    private ImageView backGround;
-    //private PlayMusicService.PlayMusicBinder binder;
+    private ListView mMusicListView, mDownLoadListPopup;
+    private TextView mMusicName, mPlayedMusicTime;
+    private PopupWindow mPopupWindow;
+    private ImageView mBackGround;
 
-    // private PlayMusicService playMusicService;
-
-
-    private List<DownLoadMusic> downloadMusicList = new ArrayList<>();
-    private int downloadProgress;
-    private int fileSize;
-    private DownLoadMusicAdapter adapter;
-    private HashMap<String, Integer> progressMap = new HashMap<>();
-    private List<String> downLoadMusicName = new ArrayList<>();
+    private List<DownLoadMusic> mDownLoadMusicList = new ArrayList<>();
+    private int mDownloadProgress;
+    private int mFileSize;
+    private DownLoadMusicAdapter mDownLoadMusicAdapter;
+    private HashMap<String, Integer> mProgressMap = new HashMap<>();
+    private List<String> mDownLoadMusicName = new ArrayList<>();
 
 
-    private ExecutorService executorService = Executors.newFixedThreadPool(1);
+    private ExecutorService mExecutorService = Executors.newFixedThreadPool(1);
 
 
     private ServiceConnection mConnection = new ServiceConnection() {
@@ -121,22 +114,10 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
         final Intent intent = new Intent("com.xiaopeng.jinglemusic2.PlayMusicService");
         intent.putExtra("musicList", (ArrayList<Music>) musicList);
         intent.setPackage("com.xiaopeng.jinglemusic2");
-        executorService.execute(new Runnable() {
-            @Override
-            public void run() {
-                startService(intent);
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
+        startService(intent);
+        bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
 
-            }
-        });
-
-
-        isPlaying = true;
+        mIsPlaying = true;
 
 
     }
@@ -230,6 +211,7 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
             try {
                 Log.d(TAG, "enter firtst play");
                 mPlayService.firstPlay(position);
+                mIsPlaying = true;
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
@@ -245,13 +227,13 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
         setContentView(R.layout.activity_play);
 
         Intent intent = getIntent();
-        position = intent.getIntExtra("position", 0);
+        mPosition = intent.getIntExtra("mPosition", 0);
         musicList = intent.getParcelableArrayListExtra("musicList");
         initView();
         initService();
         //initPlayer();
         receiver = new PlayMusicReceiver();
-        intentFilter = new IntentFilter();
+        IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.jingle.getmusictime");
         intentFilter.addAction("com.jingle.getmusictposition");
         registerReceiver(receiver, intentFilter);
@@ -259,10 +241,10 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
     }
 
     /**
-     * view的初始化
+     * View的初始化
      */
     public void initView() {
-        backGround = (ImageView) findViewById(R.id.back_ground);
+        mBackGround = (ImageView) findViewById(R.id.back_ground);
         playModel = (ImageButton) findViewById(R.id.play_model);
         lastSong = (ImageButton) findViewById(R.id.last_song);
         playAndPause = (ImageButton) findViewById(R.id.play_pause);
@@ -270,11 +252,11 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
         songList = (ImageButton) findViewById(R.id.song_list);
         download = (ImageButton) findViewById(R.id.download);
         downloadList = (ImageButton) findViewById(R.id.download_list);
-        seekBar = (SeekBar) findViewById(R.id.music_seekbar);
-        musicImage = (CircleImageView) findViewById(R.id.music_image);
-        musicName = (TextView) findViewById(R.id.music_name);
-        musicTime = (TextView) findViewById(R.id.music_time);
-        playedMusicTime = (TextView) findViewById(R.id.music_played_time);
+        mSeekBar = (SeekBar) findViewById(R.id.music_seekbar);
+        mMusicImage = (CircleImageView) findViewById(R.id.music_image);
+        mMusicName = (TextView) findViewById(R.id.music_name);
+        mMusicTime = (TextView) findViewById(R.id.music_time);
+        mPlayedMusicTime = (TextView) findViewById(R.id.music_played_time);
         playModel.setOnClickListener(this);
         lastSong.setOnClickListener(this);
         playAndPause.setOnClickListener(this);
@@ -309,24 +291,10 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
 
         //初始化，第一次播放
         Log.d(TAG, "isServiceConnected --->" + isServiceConnected());
-        executorService.execute(new Runnable() {
-            @Override
-            public void run() {
-                if (!isServiceConnected()) {
-                    try {
-                        Thread.sleep(1050);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-                Log.d(TAG, "isServiceConnected --->" + isServiceConnected());
-                Log.d(TAG, "the first play start!");
-                firstPlay(position);
-            }
-        });
 
+        firstPlay(mPosition);
 
-        initPlayerView(position);
+        initPlayerView(mPosition);
     }
 
     /**
@@ -337,23 +305,23 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
 
         if (!TextUtils.isEmpty(musicList.get(position).getSongPic())) {
 
-            Glide.with(this).load(R.drawable.music_play_cover).centerCrop().into(musicImage);
+            Glide.with(this).load(R.drawable.music_play_cover).centerCrop().into(mMusicImage);
 
         } else {
-            Glide.with(this).load(musicList.get(position).getSongPic()).centerCrop().into(musicImage);
+            Glide.with(this).load(musicList.get(position).getSongPic()).centerCrop().into(mMusicImage);
 
         }
-        musicName.setText(musicList.get(position).getSongTitle());
+        mMusicName.setText(musicList.get(position).getSongTitle());
         //渲染高斯模糊背景
-        isPlaying = true;
+        mIsPlaying = true;
         if (musicList.get(position).getSongPic() != null) {
-            executorService.execute(new MyThread());
+            mExecutorService.execute(new BlurRunnable());
         }
-        //黑唱片转盘
-        animation = AnimationUtils.loadAnimation(this, R.anim.my_anim);
+        //黑唱片转盘动画
+        mAnimation = AnimationUtils.loadAnimation(this, R.anim.my_anim);
         LinearInterpolator linearInterpolator = new LinearInterpolator();
-        animation.setInterpolator(linearInterpolator);
-        musicImage.startAnimation(animation);
+        mAnimation.setInterpolator(linearInterpolator);
+        mMusicImage.startAnimation(mAnimation);
     }
 
 
@@ -361,144 +329,135 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
     public void onClick(View view) {
         int songListClickCount = 0;
         switch (view.getId()) {
+            //播放模式
             case R.id.play_model:
-                clickCount++;
-                switch (clickCount % 3) {
-                    //随机播放
-                    case 0:
-                        ToastUtil.showToast(this, "随机播放");
-                        playModel.setBackground(getResources().getDrawable(R.drawable.random));
-                        break;
-                    //单曲循环
-                    case 1:
-                        ToastUtil.showToast(this, "单曲循环");
-                        playModel.setBackground(getResources().getDrawable(R.drawable.single_recycle));
-                        break;
-                    //列表循环
-                    case 2:
-                        ToastUtil.showToast(this, "列表循环");
-                        playModel.setBackground(getResources().getDrawable(R.drawable.list_recycle));
-                        break;
-                    default:
-                        break;
-
-                }
+                setPlayModePic();
                 break;
+            //上一曲
             case R.id.last_song:
                 last();
-
                 break;
+            //播放或暂停
             case R.id.play_pause:
-                if (isPlaying) {
-                    pause();
-                    musicImage.clearAnimation();
-                    playAndPause.setSelected(true);
-                    isPlaying = false;
-
-                } else {
-                    play();
-                    playAndPause.setSelected(false);
-                    musicImage.startAnimation(animation);
-                    isPlaying = true;
-
-                }
+                playOrPause();
 
                 break;
+
+            //下一曲
             case R.id.next_song:
                 next();
 
                 break;
+            //音乐播放列表
             case R.id.song_list:
-                songListClickCount++;
-                if (songListClickCount % 2 == 0) {
-                    if (popupWindow != null) {
-                        popupWindow.dismiss();
-                    }
-                } else {
-                    View musicListPopup = LayoutInflater.from(PlayActivity.this).inflate(R.layout.music_list_popupwindow, null);
-                    musicListView = (ListView) musicListPopup.findViewById(R.id.music_list);
-                    MusicListAdapter adapter = new MusicListAdapter(PlayActivity.this, R.layout.music_list_item, musicList);
-                    musicListView.setAdapter(adapter);
-                    musicListView.setOnItemClickListener(this);
-                    popupWindow = new PopupWindow(musicListPopup, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
-                    ColorDrawable colorDrawable = new ColorDrawable();
-                    popupWindow.setBackgroundDrawable(colorDrawable);
-                    popupWindow.showAsDropDown(musicName, 0, 0);
-                    popupWindow.setOutsideTouchable(true);
-                }
+                showOrDismissMusicList(songListClickCount);
                 break;
+
+            //歌曲下载
             case R.id.download:
-                DLManager dlManager = DLManager.getInstance(PlayActivity.this);
-                dlManager.setDebugEnable(true);
-                String songLink = musicList.get(position).getSongLink();
-                String fileType = null;
-                if (songLink.contains("mp3") || songLink.contains("MP3")) {
-                    fileType = ".mp3";
-                } else if (songLink.contains("m4a") || songLink.contains("M4A")) {
-                    fileType = ".m4a";
-                } else if (songLink.contains("wma") || songLink.contains("WMA")) {
-                    fileType = ".wma";
-                } else if (songLink.contains("mp4") || songLink.contains("MP4")) {
-                    fileType = ".mp4";
-                } else if (songLink.contains("acc") || songLink.contains("ACC")) {
-                    fileType = ".acc";
-                } else if (songLink.contains("flac") || songLink.contains("FLAC")) {
-                    fileType = ".flac";
-                }
-                dlManager.dlStart(musicList.get(position).getSongLink(), Environment.getExternalStorageDirectory().getAbsolutePath(), musicList.get(position).getSongTitle() + fileType, new SimpleDListener() {
-                    @Override
-                    public void onPrepare() {
-                        progressMap.put(musicList.get(position).songTitle, 0);
-                        super.onPrepare();
-                    }
+                downloadMusic();
+                break;
+            //下载歌曲列表
+            case R.id.download_list:
+                showDownloadMusics();
 
-                    @Override
-                    public void onStart(String fileName, String realUrl, int fileLength) {
-                        progressMap.put(musicList.get(position).songTitle, 0);
-                        ToastUtil.showToast(PlayActivity.this, "下载开始");
-                        fileSize = fileLength;
+                break;
+            default:
+                break;
+        }
+    }
 
-                    }
+    /**
+     * 显示下载歌曲列表
+     */
+    private void showDownloadMusics() {
+        View downLoadMusicListPopup = LayoutInflater.from(PlayActivity.this).inflate(R.layout.download_musiclist_popupwindow, null);
+        mDownLoadListPopup = (ListView) downLoadMusicListPopup.findViewById(R.id.download_musiclist);
+        mDownLoadMusicAdapter = new DownLoadMusicAdapter(PlayActivity.this, R.layout.download_music_item, mDownLoadMusicList);
+        mDownLoadListPopup.setAdapter(mDownLoadMusicAdapter);
+        //mDownLoadMusicAdapter.updateView(0,mDownLoadListPopup,mDownloadProgress+"%");
+        PopupWindow popupWindow = new PopupWindow(downLoadMusicListPopup, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
+        ColorDrawable colorDrawable = new ColorDrawable();
+        popupWindow.setBackgroundDrawable(colorDrawable);
+        popupWindow.showAsDropDown(downloadList, 0, 0);
+        popupWindow.setOutsideTouchable(true);
+    }
 
-                    @Override
-                    public void onProgress(final int progress, String fileName) {
-                        downloadProgress = fileSize > 0 ? (int) (progress * 100.0 / fileSize) : 0;
-                        downloadProgress = downloadProgress > 100 ? 100 : downloadProgress;
-                        progressMap.put(fileName.split("\\.")[0], downloadProgress);
-                        if (adapter != null) {
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    for (int i = 0; i < adapter.getCount(); i++) {
-                                        String musicName = adapter.getItem(i).musicName;
-                                        int progressFinal;
-                                        if (progressMap != null) {
-                                            progressFinal = progressMap.get(musicName);
-                                        } else {
-                                            progressFinal = 0;
-                                        }
+    /**
+     * 下载音乐
+     */
+    private void downloadMusic() {
+        DLManager dlManager = DLManager.getInstance(PlayActivity.this);
+        dlManager.setDebugEnable(true);
+        String songLink = musicList.get(mPosition).getSongLink();
+        String fileType = null;
+        if (songLink.toLowerCase().contains("mp3")) {
+            fileType = ".mp3";
+        } else if (songLink.toLowerCase().contains("m4a")) {
+            fileType = ".m4a";
+        } else if (songLink.toLowerCase().contains("wma")) {
+            fileType = ".wma";
+        } else if (songLink.toLowerCase().contains("mp4")) {
+            fileType = ".mp4";
+        } else if (songLink.toLowerCase().contains("acc")) {
+            fileType = ".acc";
+        } else if (songLink.toLowerCase().contains("flac")) {
+            fileType = ".flac";
+        }
+        dlManager.dlStart(musicList.get(mPosition).getSongLink(), Environment.getExternalStorageDirectory().getAbsolutePath(), musicList.get(mPosition).getSongTitle() + fileType, new SimpleDListener() {
+            @Override
+            public void onPrepare() {
+                mProgressMap.put(musicList.get(mPosition).songTitle, 0);
+                super.onPrepare();
+            }
 
-                                        adapter.updateView(i, downLoadListPopup, progressFinal + "%");
-                                    }
+            @Override
+            public void onStart(String fileName, String realUrl, int fileLength) {
+                mProgressMap.put(musicList.get(mPosition).songTitle, 0);
+                ToastUtil.showToast(PlayActivity.this, "下载开始");
+                mFileSize = fileLength;
 
+            }
+
+            @Override
+            public void onProgress(final int progress, String fileName) {
+                mDownloadProgress = mFileSize > 0 ? (int) (progress * 100.0 / mFileSize) : 0;
+                mDownloadProgress = mDownloadProgress > 100 ? 100 : mDownloadProgress;
+                mProgressMap.put(fileName.split("\\.")[0], mDownloadProgress);
+                if (mDownLoadMusicAdapter != null) {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            for (int i = 0; i < mDownLoadMusicAdapter.getCount(); i++) {
+                                String musicName = mDownLoadMusicAdapter.getItem(i).musicName;
+                                int progressFinal;
+                                if (mProgressMap != null) {
+                                    progressFinal = mProgressMap.get(musicName);
+                                } else {
+                                    progressFinal = 0;
                                 }
-                            });
+
+                                mDownLoadMusicAdapter.updateView(i, mDownLoadListPopup, progressFinal + "%");
+                            }
 
                         }
+                    });
 
-                    }
+                }
 
-                    @Override
-                    public void onFinish(File file) {
-                        super.onFinish(file);
-                    }
+            }
 
-                    @Override
-                    public void onError(int status, String error) {
-                        super.onError(status, error);
-                    }
-                });
-/*                dlManager.dlStart(musicList.get(position).getSongLink(), Environment.getExternalStorageDirectory().getAbsolutePath(), musicList.get(position).getSongTitle() + fileType, new IDListener() {
+            @Override
+            public void onFinish(File file) {
+                super.onFinish(file);
+            }
+
+            @Override
+            public void onError(int status, String error) {
+                super.onError(status, error);
+            }
+        });
+/*                dlManager.dlStart(musicList.get(mPosition).getSongLink(), Environment.getExternalStorageDirectory().getAbsolutePath(), musicList.get(mPosition).getSongTitle() + fileType, new IDListener() {
                     @Override
                     public void onPrepare() {
                         ToastUtil.showToast(PlayActivity.this, "准备下载");
@@ -508,18 +467,18 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
                     @Override
                     public void onStart(String fileName, String realUrl, int fileLength) {
                         ToastUtil.showToast(PlayActivity.this, "下载开始");
-                        fileSize = fileLength;
+                        mFileSize = fileLength;
 
                     }
 
                     @Override
                     public void onProgress(int progress) {
-                        downloadProgress = fileSize > 0 ? progress * 100 / fileSize : 0;
-                       *//* adapter = (DownLoadMusicAdapter) downLoadListPopup.getAdapter();
-                        adapter.clear();
-                        downloadMusicList.add(new DownLoadMusic(musicList.get(position).getSongTitle(), downloadProgress + "%"));
-                        adapter.addAll(downloadMusicList);
-                        adapter.notifyDataSetChanged();*//*
+                        mDownloadProgress = mFileSize > 0 ? progress * 100 / mFileSize : 0;
+                       *//* mDownLoadMusicAdapter = (DownLoadMusicAdapter) mDownLoadListPopup.getAdapter();
+                        mDownLoadMusicAdapter.clear();
+                        mDownLoadMusicList.add(new DownLoadMusic(musicList.get(mPosition).getSongTitle(), mDownloadProgress + "%"));
+                        mDownLoadMusicAdapter.addAll(mDownLoadMusicList);
+                        mDownLoadMusicAdapter.notifyDataSetChanged();*//*
 
                      *//*  new Thread(new Runnable() {
                            @Override
@@ -527,12 +486,12 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
                                runOnUiThread(new Runnable() {
                                    @Override
                                    public void run() {
-                                       adapter = (DownLoadMusicAdapter) downLoadListPopup.getAdapter();
-                                       adapter.clear();
-                                       downloadMusicList.add(new DownLoadMusic(musicList.get(position).getSongTitle(), downloadProgress + "%"));
-                                       adapter.addAll(downloadMusicList);
-                                       downLoadListPopup.setAdapter(adapter);
-                                       adapter.notifyDataSetChanged();
+                                       mDownLoadMusicAdapter = (DownLoadMusicAdapter) mDownLoadListPopup.getAdapter();
+                                       mDownLoadMusicAdapter.clear();
+                                       mDownLoadMusicList.add(new DownLoadMusic(musicList.get(mPosition).getSongTitle(), mDownloadProgress + "%"));
+                                       mDownLoadMusicAdapter.addAll(mDownLoadMusicList);
+                                       mDownLoadListPopup.setAdapter(mDownLoadMusicAdapter);
+                                       mDownLoadMusicAdapter.notifyDataSetChanged();
                                    }
                                });
                            }
@@ -555,27 +514,81 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
                         Log.e("liujian", status + error);
                     }
                 });*/
-                //    if (downloadMusicList.size() > 0 && downloadMusicList.contains())
-                if (!downLoadMusicName.contains(musicList.get(position).getSongTitle())) {
-                    downLoadMusicName.add(musicList.get(position).getSongTitle());
-                    downloadMusicList.add(new DownLoadMusic(musicList.get(position).getSongTitle(), downloadProgress + "%"));
-                }
-                break;
-            case R.id.download_list:
-                View downLoadMusicListPopup = LayoutInflater.from(PlayActivity.this).inflate(R.layout.download_musiclist_popupwindow, null);
-                downLoadListPopup = (ListView) downLoadMusicListPopup.findViewById(R.id.download_musiclist);
-                adapter = new DownLoadMusicAdapter(PlayActivity.this, R.layout.download_music_item, downloadMusicList);
-                downLoadListPopup.setAdapter(adapter);
-                //adapter.updateView(0,downLoadListPopup,downloadProgress+"%");
-                PopupWindow popupWindow = new PopupWindow(downLoadMusicListPopup, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
-                ColorDrawable colorDrawable = new ColorDrawable();
-                popupWindow.setBackgroundDrawable(colorDrawable);
-                popupWindow.showAsDropDown(downloadList, 0, 0);
-                popupWindow.setOutsideTouchable(true);
+        //    if (mDownLoadMusicList.size() > 0 && mDownLoadMusicList.contains())
+        if (!mDownLoadMusicName.contains(musicList.get(mPosition).getSongTitle())) {
+            mDownLoadMusicName.add(musicList.get(mPosition).getSongTitle());
+            mDownLoadMusicList.add(new DownLoadMusic(musicList.get(mPosition).getSongTitle(), mDownloadProgress + "%"));
+        }
+    }
 
+    /**
+     * 显示或消失歌曲列表
+     *
+     * @param mSongListClickCount
+     */
+    private void showOrDismissMusicList(int mSongListClickCount) {
+        mSongListClickCount++;
+        if (mSongListClickCount % 2 == 0) {
+            if (mPopupWindow != null) {
+                mPopupWindow.dismiss();
+            }
+        } else {
+            View musicListPopup = LayoutInflater.from(PlayActivity.this).inflate(R.layout.music_list_popupwindow, null);
+            mMusicListView = (ListView) musicListPopup.findViewById(R.id.music_list);
+            MusicListAdapter adapter = new MusicListAdapter(PlayActivity.this, R.layout.music_list_item, musicList);
+            mMusicListView.setAdapter(adapter);
+            mMusicListView.setOnItemClickListener(this);
+            mPopupWindow = new PopupWindow(musicListPopup, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
+            ColorDrawable colorDrawable = new ColorDrawable();
+            mPopupWindow.setBackgroundDrawable(colorDrawable);
+            mPopupWindow.showAsDropDown(mMusicName, 0, 0);
+            mPopupWindow.setOutsideTouchable(true);
+        }
+    }
+
+    /**
+     * 开始播放或暂停
+     */
+    private void playOrPause() {
+        if (mIsPlaying) {
+            pause();
+            mMusicImage.clearAnimation();
+            playAndPause.setSelected(true);
+            mIsPlaying = false;
+
+        } else {
+            play();
+            playAndPause.setSelected(false);
+            mMusicImage.startAnimation(mAnimation);
+            mIsPlaying = true;
+
+        }
+    }
+
+    /**
+     * 设置播放模式的图片
+     */
+    private void setPlayModePic() {
+        mClickCount++;
+        switch (mClickCount % 3) {
+            //随机播放
+            case 0:
+                ToastUtil.showToast(this, "随机播放");
+                playModel.setBackground(getResources().getDrawable(R.drawable.random));
+                break;
+            //单曲循环
+            case 1:
+                ToastUtil.showToast(this, "单曲循环");
+                playModel.setBackground(getResources().getDrawable(R.drawable.single_recycle));
+                break;
+            //列表循环
+            case 2:
+                ToastUtil.showToast(this, "列表循环");
+                playModel.setBackground(getResources().getDrawable(R.drawable.list_recycle));
                 break;
             default:
                 break;
+
         }
     }
 
@@ -625,7 +638,7 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int positionofMethod, long id) {
-        popupWindow.dismiss();
+        mPopupWindow.dismiss();
 
         initPlayerView(positionofMethod);
         playWithPosition(positionofMethod);
@@ -661,22 +674,22 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals(Config.GET_MUSIC_TIME)) {
+            if (Config.GET_MUSIC_TIME.equals(intent.getAction())) {
                 if (intent.getIntExtra("musicLength", 0) != 0) {
                     time = intent.getIntExtra("musicLength", 0);
-                    musicTime.setText(getFormatTimeString(time));
+                    mMusicTime.setText(getFormatTimeString(time));
                 }
                 if (intent.getIntExtra("seekBarPosition", 0) != 0) {
-                    seekBarposition = intent.getIntExtra("seekBarPosition", 0);
-                    playedMusicTime.setText(getFormatTimeString(seekBarposition));
-                    seekBar.setProgress((int) (seekBar.getMax() * seekBarposition / time));
+                    int seekBarposition = intent.getIntExtra("seekBarPosition", 0);
+                    mPlayedMusicTime.setText(getFormatTimeString(seekBarposition));
+                    mSeekBar.setProgress((int) (mSeekBar.getMax() * seekBarposition / time));
 
                 }
-            } else if (intent.getAction().equals(Config.GET_MUSIC_POSI)) {
+            } else if (Config.GET_MUSIC_POSI.equals(intent.getAction())) {
 
-                position = intent.getIntExtra("position", 0);
+                mPosition = intent.getIntExtra("mPosition", 0);
                 //初始化播放器界面
-                initPlayerView(position);
+                initPlayerView(mPosition);
 
             }
 
@@ -692,47 +705,18 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
 
 
     /**
-     * Generate a new description for this activity.  This method is called
-     * before pausing the activity and can, if desired, return some textual
-     * description of its current state to be displayed to the user.
-     * <p>
-     * <p>The default implementation returns null, which will cause you to
-     * inherit the description from the previous activity.  If all activities
-     * return null, generally the label of the top activity will be used as the
-     * description.
-     *
-     * @return A description of what the user is doing.  It should be short and
-     * sweet (only a few words).
-     * @see #onCreateThumbnail
-     * @see #onSaveInstanceState
-     * @see #onPause
+     * 高斯模糊任务线程
      */
-    @Nullable
-    @Override
-    public CharSequence onCreateDescription() {
-        return super.onCreateDescription();
-    }
+    class BlurRunnable implements Runnable {
 
-    class MyThread implements Runnable {
-        /**
-         * When an object implementing interface <code>Runnable</code> is used
-         * to create a thread, starting the thread causes the object's
-         * <code>run</code> method to be called in that separately executing
-         * thread.
-         * <p>
-         * The general contract of the method <code>run</code> is that it may
-         * take any action whatsoever.
-         *
-         * @see Thread#run()
-         */
         @Override
         public void run() {
-            final Bitmap bitmap = FastBlurUtil.GetUrlBitmap(musicList.get(position).getSongPic(), 3);
+            final Bitmap bitmap = FastBlurUtil.GetUrlBitmap(musicList.get(mPosition).getSongPic(), 3);
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    backGround.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    backGround.setImageBitmap(bitmap);
+                    mBackGround.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                    mBackGround.setImageBitmap(bitmap);
                 }
             });
         }

@@ -8,12 +8,11 @@ import android.os.Parcel;
 import android.os.RemoteException;
 import android.util.Log;
 
-import java.io.IOException;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author liujian
@@ -23,20 +22,19 @@ import java.util.concurrent.Executors;
 public class PlayMusicService extends Service {
     private static final String TAG = "PlayMusicService";
     private static final String ACTION_GET_MUSIC_TIME = "com.jingle.getmusictime";
-    private MediaPlayer mediaPlayer;
+    private MediaPlayer mMediaPlayer;
     private String musicLink, musicName;
     private int musicLength;
     private boolean isComplete;
-    private int seekBarPosition;
-    private Thread thread;
+    private int mSeekBarPosition;
     private static List<Music> mMusicList;
     private int mPosition;
     /**
      * 0随机 1单曲循环 2列表循环
      */
-    private int playMode = 2;
+    private int mPlayMode = 2;
 
-    private ExecutorService executorService = Executors.newFixedThreadPool(1);
+    private ExecutorService mExecutorService = Executors.newFixedThreadPool(1);
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -63,12 +61,12 @@ public class PlayMusicService extends Service {
 
         Log.d(TAG, "PlayService OnCreate");
 
-        mediaPlayer = new MediaPlayer();
+        mMediaPlayer = new MediaPlayer();
 
         /**
          * 播放完成則直接继续播放下一首
          */
-        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+        mMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
                 playMusic();
@@ -81,13 +79,11 @@ public class PlayMusicService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (mediaPlayer != null) {
-            mediaPlayer.release();
-            mediaPlayer = null;
+        if (mMediaPlayer != null) {
+            mMediaPlayer.release();
+            mMediaPlayer = null;
         }
-        if (thread != null) {
-            thread.interrupt();
-        }
+
     }
 
 
@@ -105,36 +101,33 @@ public class PlayMusicService extends Service {
         public void run() {
             try {
 
-                mediaPlayer.reset();
-                mediaPlayer.setDataSource(url);
-                mediaPlayer.prepare();
-                mediaPlayer.start();
+                mMediaPlayer.reset();
+                mMediaPlayer.setDataSource(url);
+                mMediaPlayer.prepare();
+                mMediaPlayer.start();
                 /*Intent notificationIntent = new Intent(getApplicationContext(), PlayActivity.class);
                 PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, notificationIntent, 0);
                 Notification.Builder builder = new Notification.Builder(getApplicationContext());
                 builder.setSmallIcon(R.drawable.music_notifiaction).setTicker(musicName).setContentTitle(musicName).setContentText(musicName).setContentIntent(pendingIntent);
                 builder.setWhen(SystemClock.currentThreadTimeMillis());
                 startForeground(1, builder.build());*/
-                Timer timer = new Timer();
-                sendTime2Front("musicLength", mediaPlayer.getDuration());
 
-                timer.schedule(new TimerTask() {
+                ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
+                sendTime2Front("musicLength", mMediaPlayer.getDuration());
 
+                scheduledExecutorService.scheduleAtFixedRate(new Runnable() {
                     @Override
                     public void run() {
-                        // TODO Auto-generated method stub
-                        if (mediaPlayer != null) {
-                            if (mediaPlayer.isPlaying()) {
-                                seekBarPosition = mediaPlayer.getCurrentPosition();
-                                sendTime2Front("seekBarPosition", seekBarPosition);
+                        if (mMediaPlayer != null) {
+                            if (mMediaPlayer.isPlaying()) {
+                                mSeekBarPosition = mMediaPlayer.getCurrentPosition();
+                                sendTime2Front("seekBarPosition", mSeekBarPosition);
                             }
                         }
                     }
-                }, 0, 1000);
-            } catch (IllegalStateException e) {
-                Log.e(TAG, e.toString());
-            } catch (IOException | IllegalArgumentException | SecurityException e) {
-                Log.e(TAG, e.toString());
+                }, 0, 1000, TimeUnit.MILLISECONDS);
+            } catch (Exception e) {
+                Log.e(TAG, "exception occurs:", e);
             }
         }
     }
@@ -165,55 +158,58 @@ public class PlayMusicService extends Service {
     }
 
 
+    /**
+     * binder实现类
+     */
     class IPlayServiceImpl extends IPlayServiceInterface.Stub {
         @Override
         public void firstPlay(int position) throws RemoteException {
-            executorService.execute(new PlayRunnable(mMusicList.get(position).songLink));
+            mExecutorService.execute(new PlayRunnable(mMusicList.get(position).songLink));
             Log.d(TAG, "run first play and mMusicList size--->" + mMusicList.size());
         }
 
         @Override
         public void play() throws RemoteException {
-            if (mediaPlayer != null) {
-                // mediaPlayer.start();
-                mediaPlayer.seekTo(seekBarPosition);
+            if (mMediaPlayer != null) {
+                // mMediaPlayer.start();
+                mMediaPlayer.seekTo(mSeekBarPosition);
             }
 
         }
 
         @Override
         public void pause() throws RemoteException {
-            if (mediaPlayer != null) {
+            if (mMediaPlayer != null) {
 
-                mediaPlayer.pause();
+                mMediaPlayer.pause();
             }
         }
 
         @Override
         public void stop() throws RemoteException {
-            if (mediaPlayer != null) {
-                mediaPlayer.stop();
+            if (mMediaPlayer != null) {
+                mMediaPlayer.stop();
             }
 
         }
 
         @Override
         public void last() throws RemoteException {
-            executorService.execute(new PlayRunnable(mMusicList.get((--mPosition) % mMusicList.size()).songLink));
+            mExecutorService.execute(new PlayRunnable(mMusicList.get((--mPosition) % mMusicList.size()).songLink));
             sendPosition2Front(mPosition);
 
         }
 
         @Override
         public void next() throws RemoteException {
-            executorService.execute(new PlayRunnable(mMusicList.get((++mPosition) % mMusicList.size()).songLink));
+            mExecutorService.execute(new PlayRunnable(mMusicList.get((++mPosition) % mMusicList.size()).songLink));
             sendPosition2Front(mPosition);
         }
 
         @Override
         public void playMode(int mode) throws RemoteException {
 
-            playMode = mode;
+            mPlayMode = mode;
         }
 
         @Override
@@ -240,7 +236,7 @@ public class PlayMusicService extends Service {
      * 根据mode来产生需要播放的position
      */
     private void playMusic() {
-        switch (playMode) {
+        switch (mPlayMode) {
 
             //随机
             case 0:
@@ -261,6 +257,6 @@ public class PlayMusicService extends Service {
         }
 
         sendPosition2Front(mPosition);
-        executorService.execute(new PlayRunnable(mMusicList.get(mPosition).songLink));
+        mExecutorService.execute(new PlayRunnable(mMusicList.get(mPosition).songLink));
     }
 }

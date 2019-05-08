@@ -12,7 +12,10 @@ import com.xiaopeng.jinglemusic2.R;
 
 import java.util.List;
 
-public class MyAdapter extends RecyclerView.Adapter {
+/**
+ * @author XP-PC-XXX
+ */
+public class MusicAdapter extends RecyclerView.Adapter {
     private List<Music> mData;
     private Context mContex;
     private OnItemClickListener onItemClickListener;
@@ -21,7 +24,7 @@ public class MyAdapter extends RecyclerView.Adapter {
         this.onItemClickListener = onItemClickListener;
     }
 
-    public MyAdapter(List<Music> mData, Context mContex) {
+    public MusicAdapter(List<Music> mData, Context mContex) {
         this.mData = mData;
         this.mContex = mContex;
     }
@@ -43,7 +46,8 @@ public class MyAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        ((ViewHolder) holder).textView.setText(mData.get(position).getSongTitle());
+        Music music = mData.get(position);
+        ((ViewHolder) holder).textView.setText(music.songTitle + "————" + music.author);
 
     }
 
@@ -65,7 +69,7 @@ public class MyAdapter extends RecyclerView.Adapter {
         void onItemClick(View view);
     }
     /*private int resourceId;
-    public MyAdapter(Context context, int resource, List<Music> objects) {
+    public MusicAdapter(Context context, int resource, List<Music> objects) {
 		super(context, resource, objects);
 		// TODO Auto-generated constructor stub
 		resourceId = resource;

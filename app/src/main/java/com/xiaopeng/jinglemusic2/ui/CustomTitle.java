@@ -12,19 +12,22 @@ import android.widget.TextView;
 import com.xiaopeng.jinglemusic2.R;
 
 
+/**
+ * @author XP-PC-XXX
+ */
 public class CustomTitle extends LinearLayout {
 
-	public Button left, right;
-	public TextView titleText;
+	public Button mLeft, mRight;
+	public TextView mTextView;
 
 	public CustomTitle(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		// TODO Auto-generated constructor stub
 		LayoutInflater.from(context).inflate(R.layout.custom_title, this);
-		left = (Button) findViewById(R.id.title_left);
-		right = (Button) findViewById(R.id.title_right);
-		titleText = (TextView) findViewById(R.id.title_text);
-		left.setOnClickListener(new OnClickListener() {
+		mLeft = (Button) findViewById(R.id.title_left);
+		mRight = (Button) findViewById(R.id.title_right);
+		mTextView = (TextView) findViewById(R.id.title_text);
+		mLeft.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
@@ -33,7 +36,7 @@ public class CustomTitle extends LinearLayout {
 			}
 		});
 
-		/*right.setOnClickListener(new OnClickListener() {
+		/*mRight.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {

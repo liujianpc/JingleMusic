@@ -5,6 +5,7 @@
     android:background="@color/mintcream"
     android:orientation="vertical">
 
+
     <TextView
         android:id="@+id/song_title"
         android:layout_width="match_parent"
@@ -13,6 +14,7 @@
         android:maxLines="3"
         android:shadowColor="@color/mycolor"
         android:textColor="@color/black" />
+
 
     <View
         android:id="@+id/split_line"

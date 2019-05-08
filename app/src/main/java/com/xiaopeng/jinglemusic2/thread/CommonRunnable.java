@@ -25,12 +25,12 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- *
  * @author liujian
  * @date 2017/8/13
  */
 
 public class CommonRunnable implements Runnable {
+    private static final int OK_CODE = 200;
     private String mSongName;
     private String mType;
     private SearchModel.LoadCallback mLoadCallback;
@@ -47,25 +47,36 @@ public class CommonRunnable implements Runnable {
     public void run() {
         ArrayList<Music> songList;
         try {
-            String requestUrl = "http://music.sonimei.cn/";
+            String requestUrl = "http://music.sonimei.cn/";//"http://music.ifkdy.com/";
             HashMap<String, String> paramsMap = new HashMap<>(4);
             paramsMap.put("input", mSongName);
             paramsMap.put("filter", "name");
-            paramsMap.put("mType", mType);
+            paramsMap.put("type", mType);
             paramsMap.put("page", "1");
 
             Gson gson = new Gson();
+
             JsonObject jsonObject = new JsonParser().parse(NetworkUtil.getJsonByPost(requestUrl, paramsMap)).getAsJsonObject();
-            JsonArray jsonArray = jsonObject.getAsJsonArray("data");
-            songList = gson.fromJson(jsonArray, new TypeToken<List<Music>>() {
-            }.getType());
+            int code = jsonObject.get("code").getAsInt();
+            if (code == OK_CODE) {
+                JsonArray jsonArray = jsonObject.getAsJsonArray("data");
+                songList = gson.fromJson(jsonArray, new TypeToken<List<Music>>() {
+                }.getType());
 
 
-          if (mLoadCallback != null){
-              mLoadCallback.onSuccess(songList);
-          }
+                if (mLoadCallback != null) {
+                    mLoadCallback.onSuccess(songList);
+                }
+            } else {
+                if (mLoadCallback != null) {
+                    String errorMsg = jsonObject.get("error").getAsString();
+                    mLoadCallback.onFailed(new IllegalStateException(errorMsg));
+                }
+
+            }
+
         } catch (Exception e) {
-            if (mLoadCallback != null){
+            if (mLoadCallback != null) {
                 mLoadCallback.onFailed(e);
             }
         }

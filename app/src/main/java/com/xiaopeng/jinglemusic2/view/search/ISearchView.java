@@ -13,7 +13,7 @@ import java.util.List;
 
 public interface ISearchView {
 
-    void showToast();
+    void showToast(Exception e);
 
     void showResult(List<Music> musics);
 
