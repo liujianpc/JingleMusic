@@ -11,15 +11,20 @@ import java.util.List;
  * @author LiuJian
  */
 
-public interface IPlayView {
+public interface IPlayActivityView {
     void showPlay(int position);
 
     void showStop();
+
+    void showPause();
 
     void showSwitchMode(int mode);
 
     void showMusicList(List<Music> musics);
 
     void showDownload(List<Music> musics);
+
+    void showPlay();
+
 
 }

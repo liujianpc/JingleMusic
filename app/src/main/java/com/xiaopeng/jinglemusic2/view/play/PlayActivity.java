@@ -1,20 +1,15 @@
 package com.xiaopeng.jinglemusic2.view.play;
 
-import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.ServiceConnection;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.IBinder;
-import android.os.RemoteException;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -39,7 +34,10 @@ import com.xiaopeng.jinglemusic2.Music;
 import com.xiaopeng.jinglemusic2.R;
 import com.xiaopeng.jinglemusic2.control.DownLoadMusicAdapter;
 import com.xiaopeng.jinglemusic2.control.MusicListAdapter;
+import com.xiaopeng.jinglemusic2.helper.PlayMusicHelper;
 import com.xiaopeng.jinglemusic2.model.DownLoadMusic;
+import com.xiaopeng.jinglemusic2.presenter.play.IPlayPresenter;
+import com.xiaopeng.jinglemusic2.presenter.play.PlayPresenter;
 import com.xiaopeng.jinglemusic2.ui.BaseActivity;
 import com.xiaopeng.jinglemusic2.utils.FastBlurUtil;
 import com.xiaopeng.jinglemusic2.utils.ToastUtil;
@@ -58,17 +56,18 @@ import de.hdodenhof.circleimageview.CircleImageView;
 /**
  * @author XP-PC-XXX
  */
-public class PlayActivity extends BaseActivity implements View.OnClickListener, AdapterView.OnItemClickListener, IPlayView {
+public class PlayActivity extends BaseActivity implements View.OnClickListener, AdapterView.OnItemClickListener, IPlayActivityView {
 
     private static final String TAG = "PlayActivity";
     private IPlayServiceInterface mPlayService;
-    private ImageButton playModel, lastSong, playAndPause, nextSong, songList, download, downloadList;
+    private ImageButton mPlayModeBtn;
+    private ImageButton mPlayAndPauseBtn;
+    private ImageButton mDownloadListBtn;
     private static List<Music> musicList;
     private SeekBar mSeekBar;
     private CircleImageView mMusicImage;
     private Animation mAnimation;
     private TextView mMusicTime;
-    private Intent mBindIntent;
     private int mPosition;
     private int mClickCount = 0;
     private int mPlayModeFlag = 2;
@@ -91,36 +90,8 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
 
     private ExecutorService mExecutorService = Executors.newFixedThreadPool(1);
 
+    private IPlayPresenter mPlayPresenter;
 
-    private ServiceConnection mConnection = new ServiceConnection() {
-        @Override
-        public void onServiceConnected(ComponentName name, IBinder service) {
-            mPlayService = IPlayServiceInterface.Stub.asInterface(service);
-            Log.d(TAG, "mPlayService--->" + mPlayService);
-        }
-
-        @Override
-        public void onServiceDisconnected(ComponentName name) {
-            mPlayService = null;
-
-        }
-    };
-
-    /**
-     * 绑定service
-     */
-    private void initService() {
-
-        final Intent intent = new Intent("com.xiaopeng.jinglemusic2.PlayMusicService");
-        intent.putExtra("musicList", (ArrayList<Music>) musicList);
-        intent.setPackage("com.xiaopeng.jinglemusic2");
-        startService(intent);
-        bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
-
-        mIsPlaying = true;
-
-
-    }
 
     /**
      * 點擊列表產生的播放
@@ -128,26 +99,15 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
      * @param position 點擊位置
      */
     private void playWithPosition(int position) {
-        if (mPlayService != null) {
-            try {
-                mPlayService.playWithPosition(position);
-            } catch (RemoteException e) {
-                e.printStackTrace();
-            }
-        }
+        mPlayPresenter.playWithPosition(position);
     }
 
     /**
      * 播放音樂
      */
     private void play() {
-        if (mPlayService != null) {
-            try {
-                mPlayService.play();
-            } catch (RemoteException e) {
-                e.printStackTrace();
-            }
-        }
+
+        mPlayPresenter.play();
 
     }
 
@@ -155,67 +115,35 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
      * 暫停播放
      */
     private void pause() {
-        if (mPlayService != null) {
-            try {
-                mPlayService.pause();
-            } catch (RemoteException e) {
-                e.printStackTrace();
-            }
-        }
+        mPlayPresenter.pause();
     }
 
     /**
      * 停止播放
      */
     private void stop() {
-        if (mPlayService != null) {
-            try {
-                mPlayService.stop();
-            } catch (RemoteException e) {
-                e.printStackTrace();
-            }
-        }
+        mPlayPresenter.stop();
     }
 
     /**
      * 播放上一首
      */
     private void last() {
-        if (mPlayService != null) {
-            try {
-                mPlayService.last();
-            } catch (RemoteException e) {
-                e.printStackTrace();
-            }
-        }
+        mPlayPresenter.last();
     }
 
     /**
      * 播放下一首
      */
     private void next() {
-        if (mPlayService != null) {
-            try {
-                mPlayService.next();
-            } catch (RemoteException e) {
-                e.printStackTrace();
-            }
-        }
+        mPlayPresenter.next();
     }
 
     /**
      * 第一次播放
      */
     private void firstPlay(int position) {
-        if (mPlayService != null) {
-            try {
-                Log.d(TAG, "enter firtst play");
-                mPlayService.firstPlay(position);
-                mIsPlaying = true;
-            } catch (RemoteException e) {
-                e.printStackTrace();
-            }
-        }
+        mPlayPresenter.firstPlay(position);
 
     }
 
@@ -226,11 +154,14 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_play);
 
+        mPlayPresenter = new PlayPresenter(this);
+
         Intent intent = getIntent();
-        mPosition = intent.getIntExtra("mPosition", 0);
+        mPosition = intent.getIntExtra("position", 0);
         musicList = intent.getParcelableArrayListExtra("musicList");
         initView();
-        initService();
+        PlayMusicHelper.getInstance().initService(musicList);
+        mIsPlaying = true;
         //initPlayer();
         receiver = new PlayMusicReceiver();
         IntentFilter intentFilter = new IntentFilter();
@@ -245,25 +176,25 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
      */
     public void initView() {
         mBackGround = (ImageView) findViewById(R.id.back_ground);
-        playModel = (ImageButton) findViewById(R.id.play_model);
-        lastSong = (ImageButton) findViewById(R.id.last_song);
-        playAndPause = (ImageButton) findViewById(R.id.play_pause);
-        nextSong = (ImageButton) findViewById(R.id.next_song);
-        songList = (ImageButton) findViewById(R.id.song_list);
-        download = (ImageButton) findViewById(R.id.download);
-        downloadList = (ImageButton) findViewById(R.id.download_list);
+        mPlayModeBtn = (ImageButton) findViewById(R.id.play_model);
+        ImageButton lastSongImgBtn = (ImageButton) findViewById(R.id.last_song);
+        mPlayAndPauseBtn = (ImageButton) findViewById(R.id.play_pause);
+        ImageButton nextSong = (ImageButton) findViewById(R.id.next_song);
+        ImageButton songList = (ImageButton) findViewById(R.id.song_list);
+        ImageButton download = (ImageButton) findViewById(R.id.download);
+        mDownloadListBtn = (ImageButton) findViewById(R.id.download_list);
         mSeekBar = (SeekBar) findViewById(R.id.music_seekbar);
         mMusicImage = (CircleImageView) findViewById(R.id.music_image);
         mMusicName = (TextView) findViewById(R.id.music_name);
         mMusicTime = (TextView) findViewById(R.id.music_time);
         mPlayedMusicTime = (TextView) findViewById(R.id.music_played_time);
-        playModel.setOnClickListener(this);
-        lastSong.setOnClickListener(this);
-        playAndPause.setOnClickListener(this);
+        mPlayModeBtn.setOnClickListener(this);
+        lastSongImgBtn.setOnClickListener(this);
+        mPlayAndPauseBtn.setOnClickListener(this);
         nextSong.setOnClickListener(this);
         songList.setOnClickListener(this);
         download.setOnClickListener(this);
-        downloadList.setOnClickListener(this);
+        mDownloadListBtn.setOnClickListener(this);
 
     }
 
@@ -300,7 +231,6 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
     /**
      * 初始化播放器界面
      */
-    @SuppressLint("ResourceType")
     private void initPlayerView(int position) {
 
         if (!TextUtils.isEmpty(musicList.get(position).getSongPic())) {
@@ -312,16 +242,18 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
 
         }
         mMusicName.setText(musicList.get(position).getSongTitle());
-        //渲染高斯模糊背景
-        mIsPlaying = true;
-        if (musicList.get(position).getSongPic() != null) {
-            mExecutorService.execute(new BlurRunnable());
-        }
+
         //黑唱片转盘动画
         mAnimation = AnimationUtils.loadAnimation(this, R.anim.my_anim);
         LinearInterpolator linearInterpolator = new LinearInterpolator();
         mAnimation.setInterpolator(linearInterpolator);
         mMusicImage.startAnimation(mAnimation);
+        //渲染高斯模糊背景
+        mIsPlaying = true;
+        if (musicList.get(position).getSongPic() != null) {
+            mExecutorService.execute(new BlurRunnable());
+        }
+
     }
 
 
@@ -331,7 +263,8 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
         switch (view.getId()) {
             //播放模式
             case R.id.play_model:
-                setPlayModePic();
+                mClickCount++;
+                mPlayPresenter.playMode(mClickCount % 3);
                 break;
             //上一曲
             case R.id.last_song:
@@ -379,7 +312,7 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
         PopupWindow popupWindow = new PopupWindow(downLoadMusicListPopup, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
         ColorDrawable colorDrawable = new ColorDrawable();
         popupWindow.setBackgroundDrawable(colorDrawable);
-        popupWindow.showAsDropDown(downloadList, 0, 0);
+        popupWindow.showAsDropDown(mDownloadListBtn, 0, 0);
         popupWindow.setOutsideTouchable(true);
     }
 
@@ -552,45 +485,13 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
     private void playOrPause() {
         if (mIsPlaying) {
             pause();
-            mMusicImage.clearAnimation();
-            playAndPause.setSelected(true);
-            mIsPlaying = false;
 
         } else {
             play();
-            playAndPause.setSelected(false);
-            mMusicImage.startAnimation(mAnimation);
-            mIsPlaying = true;
 
         }
     }
 
-    /**
-     * 设置播放模式的图片
-     */
-    private void setPlayModePic() {
-        mClickCount++;
-        switch (mClickCount % 3) {
-            //随机播放
-            case 0:
-                ToastUtil.showToast(this, "随机播放");
-                playModel.setBackground(getResources().getDrawable(R.drawable.random));
-                break;
-            //单曲循环
-            case 1:
-                ToastUtil.showToast(this, "单曲循环");
-                playModel.setBackground(getResources().getDrawable(R.drawable.single_recycle));
-                break;
-            //列表循环
-            case 2:
-                ToastUtil.showToast(this, "列表循环");
-                playModel.setBackground(getResources().getDrawable(R.drawable.list_recycle));
-                break;
-            default:
-                break;
-
-        }
-    }
 
     @Override
     protected void onDestroy() {
@@ -646,16 +547,56 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
 
     @Override
     public void showPlay(int position) {
+        mMusicImage.clearAnimation();
+        initPlayerView(position);
+        mPlayAndPauseBtn.setSelected(false);
+        mMusicImage.startAnimation(mAnimation);
+        mIsPlaying = true;
+
 
     }
 
     @Override
     public void showStop() {
+        // TODO: 2019/5/10 seekbar 为 0 动画停止
 
     }
 
     @Override
+    public void showPause() {
+        // TODO: 2019/5/10 动画停止 seekbar停止
+
+    }
+
+
+    /**
+     * 切换播放模式
+     *
+     * @param mode
+     */
+    @Override
     public void showSwitchMode(int mode) {
+
+        switch (mode) {
+            //随机播放
+            case 0:
+                ToastUtil.showToast(this, "随机播放");
+                mPlayModeBtn.setBackground(getResources().getDrawable(R.drawable.random));
+                break;
+            //单曲循环
+            case 1:
+                ToastUtil.showToast(this, "单曲循环");
+                mPlayModeBtn.setBackground(getResources().getDrawable(R.drawable.single_recycle));
+                break;
+            //列表循环
+            case 2:
+                ToastUtil.showToast(this, "列表循环");
+                mPlayModeBtn.setBackground(getResources().getDrawable(R.drawable.list_recycle));
+                break;
+            default:
+                break;
+
+        }
 
     }
 
@@ -666,6 +607,14 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
 
     @Override
     public void showDownload(List<Music> musics) {
+
+    }
+
+    @Override
+    public void showPlay() {
+        mPlayAndPauseBtn.setSelected(false);
+        mMusicImage.startAnimation(mAnimation);
+        mIsPlaying = true;
 
     }
 
@@ -687,7 +636,7 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
                 }
             } else if (Config.GET_MUSIC_POSI.equals(intent.getAction())) {
 
-                mPosition = intent.getIntExtra("mPosition", 0);
+                mPosition = intent.getIntExtra("position", 0);
                 //初始化播放器界面
                 initPlayerView(mPosition);
 
@@ -700,7 +649,7 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener, 
     @Override
     protected void onStop() {
         super.onStop();
-        unbindService(mConnection);
+        // TODO: 2019/5/10   unbindService(mConnection);
     }
 
 

@@ -4,7 +4,6 @@ import android.app.Service;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.IBinder;
-import android.os.Parcel;
 import android.os.RemoteException;
 import android.util.Log;
 
@@ -159,7 +158,7 @@ public class PlayMusicService extends Service {
 
 
     /**
-     * binder实现类
+     * 真正的binder实现类
      */
     class IPlayServiceImpl extends IPlayServiceInterface.Stub {
         @Override
@@ -194,16 +193,20 @@ public class PlayMusicService extends Service {
         }
 
         @Override
-        public void last() throws RemoteException {
-            mExecutorService.execute(new PlayRunnable(mMusicList.get((--mPosition) % mMusicList.size()).songLink));
+        public int last() throws RemoteException {
+            int position = (--mPosition) % mMusicList.size();
+            mExecutorService.execute(new PlayRunnable(mMusicList.get(position).songLink));
             sendPosition2Front(mPosition);
+            return position;
 
         }
 
         @Override
-        public void next() throws RemoteException {
-            mExecutorService.execute(new PlayRunnable(mMusicList.get((++mPosition) % mMusicList.size()).songLink));
+        public int next() throws RemoteException {
+            int position = (++mPosition) % mMusicList.size();
+            mExecutorService.execute(new PlayRunnable(mMusicList.get(position).songLink));
             sendPosition2Front(mPosition);
+            return position;
         }
 
         @Override
@@ -217,19 +220,6 @@ public class PlayMusicService extends Service {
 
         }
 
-        @Override
-        public boolean onTransact(int code, Parcel data, Parcel reply, int flags) {
-            try {
-                super.onTransact(code, data, reply, flags);
-            } catch (RuntimeException e) {
-                Log.w("MyClass", "Unexpected remote exception", e);
-                throw e;
-            } catch (RemoteException e) {
-                e.printStackTrace();
-                Log.w("MyClass", "Unexpected remote exception", e);
-            }
-            return false;
-        }
     }
 
     /**

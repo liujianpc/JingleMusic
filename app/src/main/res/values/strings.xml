@@ -24,6 +24,18 @@
     <string name="thank">你的赞赏，是我开发的动力。</string>
     <string name="wechat">微信赞助</string>
     <string name="go"></string>
+
+    <string name="baidu_flac">百度无损</string>
+    <string name="netease">网易云</string>
+    <string name="baidu">百度</string>
+    <string name="qq">QQ</string>
+    <string name="xiami">虾米</string>
+    <string name="kugou">酷狗</string>
+    <string name="kuwo">酷我</string>
+    <string name="migu">咪咕</string>
+    <string name="echo">回声</string>
+    <string name="yiting">一听</string>
+
     <string name="title_activity_scrolling">ScrollingActivity</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"

@@ -159,34 +159,34 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
                 initPopupWindow();
                 break;
             case R.id.pop_baidu:
-                onSourceSelected(Config.BAIDU_FLAC_FLAG, "百度无损");
+                onSourceSelected(Config.BAIDU_FLAC_FLAG, getString(R.string.baidu_flac));
                 break;
             case R.id.pop_wangyi:
-                onSourceSelected(Config.NETEASE_FLAG, "网易云");
+                onSourceSelected(Config.NETEASE_FLAG, getString(R.string.netease));
                 break;
             case R.id.pop_qq:
-                onSourceSelected(Config.QQ_FLAG, "QQ音乐");
+                onSourceSelected(Config.QQ_FLAG, getString(R.string.qq));
                 break;
             case R.id.pop_baidump3:
-                onSourceSelected(Config.BAIDU_MP3_FLAG, "百度音乐");
+                onSourceSelected(Config.BAIDU_MP3_FLAG, getString(R.string.baidu));
                 break;
             case R.id.pop_xiami:
-                onSourceSelected(Config.XIAMI_FLAG, "虾米音乐");
+                onSourceSelected(Config.XIAMI_FLAG, getString(R.string.xiami));
                 break;
             case R.id.pop_kugou:
-                onSourceSelected(Config.KUGOU_FLAG, "酷狗音乐");
+                onSourceSelected(Config.KUGOU_FLAG, getString(R.string.kugou));
                 break;
             case R.id.pop_kuwo:
-                onSourceSelected(Config.KUWO_FLAG, "酷我音乐");
+                onSourceSelected(Config.KUWO_FLAG, getString(R.string.kuwo));
                 break;
             case R.id.pop_migu:
-                onSourceSelected(Config.MIGU_FLAG, "咪咕音乐");
+                onSourceSelected(Config.MIGU_FLAG, getString(R.string.migu));
                 break;
             case R.id.pop_echo:
-                onSourceSelected(Config.ECHO_FLAG, "echo回声");
+                onSourceSelected(Config.ECHO_FLAG, getString(R.string.echo));
                 break;
             case R.id.pop_yiting:
-                onSourceSelected(Config.YITING_FLAG, "一听音乐");
+                onSourceSelected(Config.YITING_FLAG, getString(R.string.yiting));
                 break;
             case R.id.search:
                 searchMusic();
@@ -225,48 +225,48 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         switch (flag) {
             case Config.BAIDU_FLAC_FLAG:
                 colorId = R.color.baidu_flac;
-                source = "百度无损";
+                source = getString(R.string.baidu_flac);
                 break;
             case Config.NETEASE_FLAG:
                 colorId = R.color.netease;
-                source = "网易云";
+                source = getString(R.string.netease);
                 break;
             case Config.BAIDU_MP3_FLAG:
                 colorId = R.color.baidu;
-                source = "百度";
+                source = getString(R.string.baidu);
                 break;
             case Config.QQ_FLAG:
                 colorId = R.color.qq;
-                source = "QQ";
+                source = getString(R.string.qq);
                 break;
             case Config.XIAMI_FLAG:
                 colorId = R.color.xiami;
-                source = "虾米";
+                source = getString(R.string.xiami);
                 break;
             case Config.KUGOU_FLAG:
                 colorId = R.color.kugou;
-                source = "酷狗";
+                source = getString(R.string.kugou);
                 break;
             case Config.KUWO_FLAG:
                 colorId = R.color.kuwo;
-                source = "酷我";
+                source = getString(R.string.kuwo);
                 break;
             case Config.MIGU_FLAG:
                 colorId = R.color.migu;
-                source = "咪咕";
+                source = getString(R.string.migu);
                 break;
             case Config.ECHO_FLAG:
                 colorId = R.color.echo;
-                source = "回声";
+                source = getString(R.string.echo);
                 break;
             case Config.YITING_FLAG:
                 colorId = R.color.yiting;
-                source = "一听";
+                source = getString(R.string.yiting);
                 break;
 
             default:
                 colorId = R.color.mycolor2;
-                source = "换源";
+                source = getString(R.string.right);
 
         }
         // mAppBarLayout.setBackgroundColor(getColor(colorId));

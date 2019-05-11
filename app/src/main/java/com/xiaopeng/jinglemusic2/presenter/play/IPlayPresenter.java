@@ -8,11 +8,21 @@ package com.xiaopeng.jinglemusic2.presenter.play;
  */
 
 public interface IPlayPresenter {
-    void play(int position);
 
+    //首次播放
+    void firstPlay(int position);
+    //播放
+    void play();
+    //暂停
+    void pause();
+    //停止播放
     void stop();
-
-    void download();
-
-    void loadMusicList();
+    //上一首
+    int last();
+    //下一首
+    int next();
+    //播放模式
+    void playMode(int mode);
+    //帶有位置的播放
+    void playWithPosition(int position);
 }

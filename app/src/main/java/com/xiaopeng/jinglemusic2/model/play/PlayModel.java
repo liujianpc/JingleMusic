@@ -1,6 +1,6 @@
 package com.xiaopeng.jinglemusic2.model.play;
 
-import com.xiaopeng.jinglemusic2.model.play.IPlayModel;
+import com.xiaopeng.jinglemusic2.presenter.play.IPlayPresenter;
 
 /**
  * Date: 2019/3/23
@@ -10,6 +10,14 @@ import com.xiaopeng.jinglemusic2.model.play.IPlayModel;
  */
 
 public class PlayModel implements IPlayModel {
+
+    private IPlayPresenter mPlayPresenter;
+
+    public PlayModel(IPlayPresenter playPresenter) {
+
+        this.mPlayPresenter = playPresenter;
+    }
+
     @Override
     public void loadMusicList(String address) {
 

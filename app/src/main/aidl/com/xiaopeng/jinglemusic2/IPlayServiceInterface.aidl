@@ -21,9 +21,9 @@ interface IPlayServiceInterface {
       //停止播放
       void stop();
       //上一首
-      void last();
+      int last();
       //下一首
-      void next();
+      int next();
       //播放模式
       void playMode(int mode);
       //帶有位置的播放
